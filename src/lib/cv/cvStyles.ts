@@ -1,0 +1,51 @@
+import { StyleSheet } from "@react-pdf/renderer";
+
+export const ACCENT = "#2563eb"; // Tailwind blue-600, the site accent
+
+export const cvStyles = StyleSheet.create({
+  page: {
+    paddingVertical: 36,
+    paddingHorizontal: 40,
+    fontSize: 9,
+    fontFamily: "Helvetica",
+    color: "#1e293b",
+    lineHeight: 1.4,
+  },
+  name: { fontSize: 22, fontFamily: "Helvetica-Bold", color: "#0f172a" },
+  title: {
+    fontSize: 10,
+    fontFamily: "Helvetica-Bold",
+    color: ACCENT,
+    marginTop: 2,
+    textTransform: "uppercase",
+    letterSpacing: 0.5,
+  },
+  summary: { marginTop: 6, fontSize: 9, color: "#475569" },
+  section: { marginTop: 14 },
+  sectionTitle: {
+    fontSize: 11,
+    fontFamily: "Helvetica-Bold",
+    color: "#0f172a",
+    borderBottomWidth: 1,
+    borderBottomColor: ACCENT,
+    paddingBottom: 3,
+    marginBottom: 6,
+    textTransform: "uppercase",
+    letterSpacing: 0.5,
+  },
+  infoRow: { flexDirection: "row", flexWrap: "wrap", marginBottom: 2 },
+  infoItem: { fontSize: 9, color: "#475569", marginRight: 14 },
+  infoLabel: { fontFamily: "Helvetica-Bold", color: "#0f172a" },
+  entry: { marginBottom: 9 },
+  entryHeader: { flexDirection: "row", justifyContent: "space-between" },
+  entryRole: { fontSize: 10, fontFamily: "Helvetica-Bold", color: "#0f172a" },
+  entryMeta: { fontSize: 9, color: ACCENT, fontFamily: "Helvetica-Bold" },
+  entrySub: { fontSize: 9, color: "#64748b", marginBottom: 2 },
+  bullet: { flexDirection: "row", marginBottom: 1.5 },
+  bulletDot: { width: 8, fontSize: 9, color: ACCENT },
+  bulletText: { flex: 1, fontSize: 9, color: "#475569" },
+  skillGroup: { marginBottom: 5 },
+  skillName: { fontSize: 9, fontFamily: "Helvetica-Bold", color: "#0f172a" },
+  skillText: { fontSize: 9, color: "#475569" },
+  link: { color: ACCENT, textDecoration: "none" },
+});
