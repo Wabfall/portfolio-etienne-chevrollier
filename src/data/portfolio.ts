@@ -690,3 +690,36 @@ export const projects = [
     } as ProjectContent,
   },
 ];
+
+// ─── CV-only extra data ───────────────────────────────────────────────────────
+
+export const cvExtra = {
+  phone: "+33 6 19 18 49 32",
+  languages: [
+    { name: { en: "French", fr: "Français" } as Bil, level: { en: "Native", fr: "Natif" } as Bil },
+    { name: { en: "English", fr: "Anglais" } as Bil, level: { en: "B2", fr: "B2" } as Bil },
+  ],
+  hobbies: [
+    {
+      category: { en: "Travel & Cultural Discovery", fr: "Voyage & découverte culturelle" } as Bil,
+      text: {
+        en: "Explored Europe (Nordics, Portugal, Cyprus, Czech Republic, Greece) and North America (Canada)",
+        fr: "Europe (pays nordiques, Portugal, Chypre, République tchèque, Grèce) et Amérique du Nord (Canada)",
+      } as Bil,
+    },
+    {
+      category: { en: "Music & Production", fr: "Musique & production" } as Bil,
+      text: {
+        en: "Guitarist and bassist, studio recording, host of a music podcast",
+        fr: "Guitariste et bassiste, enregistrement studio, animateur d'un podcast musical",
+      } as Bil,
+    },
+    {
+      category: { en: "Sports & Wellness", fr: "Sport & bien-être" } as Bil,
+      text: {
+        en: "Soccer, running, and strength training",
+        fr: "Football, course à pied et musculation",
+      } as Bil,
+    },
+  ],
+};
