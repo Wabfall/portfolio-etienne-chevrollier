@@ -8,6 +8,20 @@ export const ui = {
     skills:       { en: "Skills",       fr: "Compétences"  } as Bil,
     education:    { en: "Education",    fr: "Formation"    } as Bil,
     testimonials: { en: "Testimonials", fr: "Témoignages"  } as Bil,
+    cv:           { en: "CV",           fr: "CV"           } as Bil,
+  },
+  cv: {
+    pageTitle:          { en: "Résumé",  fr: "CV" } as Bil,
+    pageSubtitle:       {
+      en: "Generated from this site's data — download it as a PDF.",
+      fr: "Généré depuis les données de ce site — téléchargeable en PDF.",
+    } as Bil,
+    download:           { en: "Download CV",      fr: "Télécharger le CV" } as Bil,
+    generating:         { en: "Generating PDF…",  fr: "Génération du PDF…" } as Bil,
+    previewDesktopOnly: {
+      en: "Preview available on desktop. Use the button above to download.",
+      fr: "Aperçu disponible sur ordinateur. Utilisez le bouton ci-dessus pour télécharger.",
+    } as Bil,
   },
   hero: {
     viewWork:   { en: "View my work",  fr: "Voir mes projets"     } as Bil,
