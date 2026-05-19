@@ -21,7 +21,9 @@ export const cvStyles = StyleSheet.create({
   // ── Header ──────────────────────────────────────────────────────────────
   header: { flexDirection: "row", alignItems: "center", marginBottom: 13 },
   // Reference: 78u square stroked navy (≈49pt box, ≈0.6pt stroke),
-  // "EC" in OpenSans-SemiBold Tf 40 → ≈25pt navy.
+  // "EC" in OpenSans-SemiBold Tf 40 → ≈25pt navy. The box's left edge sits
+  // 1.9pt left of the content margin so it aligns vertically with the
+  // timeline markers further down the page (same overhang).
   monogram: {
     width: 49,
     height: 49,
@@ -29,7 +31,8 @@ export const cvStyles = StyleSheet.create({
     borderColor: NAVY,
     alignItems: "center",
     justifyContent: "center",
-    marginRight: 18,
+    marginLeft: -1.9,
+    marginRight: 16,
   },
   monogramText: {
     fontFamily: "Open Sans",
@@ -37,8 +40,11 @@ export const cvStyles = StyleSheet.create({
     fontSize: 25,
     color: NAVY,
     lineHeight: 1,
+    // Optical centring: SemiBold sits a hair high in its line box.
+    marginTop: 2,
   },
-  headerText: { flex: 1, justifyContent: "center" },
+  // Name sits on the box centerline; subtitle hangs just below.
+  headerText: { flex: 1, justifyContent: "center", paddingTop: 2 },
   name: {
     fontFamily: "Quicksand",
     fontWeight: "bold",
@@ -141,11 +147,11 @@ export const cvStyles = StyleSheet.create({
   // ── Bullets (round dots for a lighter feel) ─────────────────────────────
   bullet: {
     flexDirection: "row",
-    alignItems: "flex-start",
+    alignItems: "baseline",
     marginTop: 2,
     paddingRight: 6,
   },
-  bulletDot: { width: 11, fontSize: 13, color: NAVY, lineHeight: 1.1 },
+  bulletDot: { width: 10, fontSize: 9, color: NAVY, lineHeight: 1.45 },
   bulletText: { flex: 1, fontSize: 8.5, color: INK, lineHeight: 1.45 },
 
   // ── Simple marked list (skills / languages / interests) ─────────────────

@@ -146,60 +146,6 @@ export const experiences = [
       en: "Full-stack development of an internal log-analysis platform and contributions across the data team's core ETL and governance tooling.",
       fr: "Développement full-stack d'une plateforme interne d'analyse de logs et contributions à l'ETL central ainsi qu'aux outils de gouvernance de l'équipe data.",
     } as Bil,
-    groups: [
-      {
-        intro: {
-          en: "Internal full-stack web app for log data visualization & analysis",
-          fr: "Application web interne de visualisation et d'analyse de logs",
-        } as Bil,
-        bullets: {
-          en: [
-            "Designed, architected and built the application autonomously (full-stack)",
-            "Stack: Spring Boot (back-end), React (front-end), ElasticSearch & MongoDB",
-            "Continuous improvement: support and new features driven by user feedback",
-            "Technical documentation with Docusaurus and Confluence",
-          ],
-          fr: [
-            "Conception, architecture et développement full-stack en autonomie",
-            "Stack : Spring Boot (back-end), React (front-end), ElasticSearch & MongoDB",
-            "Évolution continue : support et nouvelles fonctionnalités guidées par les retours utilisateurs",
-            "Documentation technique avec Docusaurus et Confluence",
-          ],
-        } as BilArr,
-      },
-      {
-        intro: {
-          en: "Enhancements to a SQL streaming module within an internal ETL",
-          fr: "Amélioration d'un module de streaming SQL au sein d'un ETL interne",
-        } as Bil,
-        bullets: {
-          en: [
-            "Automated documentation generation from Java code and Markdown with Docusaurus",
-            "Developed a streaming SQL data-processing module on Apache Flink (Java)",
-          ],
-          fr: [
-            "Automatisation de la documentation depuis le code Java et le Markdown avec Docusaurus",
-            "Développement d'un module de traitement de données en streaming SQL avec Apache Flink (Java)",
-          ],
-        } as BilArr,
-      },
-      {
-        intro: {
-          en: "Data Engineering for Data Governance",
-          fr: "Data Engineering au service de la Gouvernance des données",
-        } as Bil,
-        bullets: {
-          en: [
-            "Scripts supporting data governance within the IT department",
-            "Big Data stack: BigQuery, Teradata, Hadoop",
-          ],
-          fr: [
-            "Scripts pour la gouvernance des données au sein de la DSI",
-            "Stack Big Data : BigQuery, Teradata, Hadoop",
-          ],
-        } as BilArr,
-      },
-    ],
     category: "both" as Category,
     icon: "/logos/bouygues-telecom.svg" as string | null,
     highlights: {
@@ -453,14 +399,14 @@ export const linkedinPosts: Post[] = [
   {
     title: "Have you heard of Docusaurus?",
     excerpt: "Build optimized websites quickly and focus on your content — Docusaurus is Meta's static site generator. I used it to automate documentation generation from Java & Markdown at Bouygues Telecom.",
-    date: "2026-04-14",
+    date: "2025-04-14",
     tag: "Software",
     url: "https://www.linkedin.com/posts/etienne-chevrollier_build-optimized-websites-quickly-focus-activity-7338127913382277120-mPR4",
   },
   {
     title: "How to prepare for the Google Cloud Digital Leader certification?",
     excerpt: "Tips and resources to pass the Cloud Digital Leader exam — my experience preparing for the #GoogleCloud certification. #clouddigitalleader #GCP",
-    date: "2026-04-18",
+    date: "2025-04-18",
     tag: "Data Platform",
     url: "https://www.linkedin.com/posts/etienne-chevrollier_googlecloud-clouddigitalleader-certification-activity-7339214999539605504-aimC",
   },
@@ -823,7 +769,7 @@ export const cvExtra = {
       category: { en: "Music & Production", fr: "Musique & production" } as Bil,
       text: {
         en: "Guitarist and bassist, studio recording, host of a music podcast",
-        fr: "Guitariste et bassiste, enregistrement studio, animateur d'un podcast musical",
+        fr: "Guitariste et bassiste, enregistrement studio, animation d'un podcast musical",
       } as Bil,
     },
     {

@@ -55,7 +55,7 @@ function InfoCol({ label, children }: { label: string; children: ReactNode }) {
 function Bullet({ children }: { children: string }) {
   return (
     <View style={s.bullet}>
-      <Text style={s.bulletDot}>•</Text>
+      <Text style={s.bulletDot}>●</Text>
       <Text style={s.bulletText}>{clean(children)}</Text>
     </View>
   );
