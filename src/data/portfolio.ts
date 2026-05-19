@@ -67,7 +67,7 @@ export const experiences = [
     icon: "/logos/papernest.svg" as string | null,
     highlights: {
       en: [
-        "Acting as the sole Data Engineer onsite, primary point of contact for Sales Ops and Patnership across FR, ES & IT markets",
+        "Acting as the sole Data Engineer onsite, primary point of contact for Sales Ops and Partnership across FR, ES & IT markets",
         "Designed & developed a custom YAML Configuration Editor ➜ enables non-technical stakeholders to safely configure pipelines, preventing syntax errors and reducing support time",
         "Developing features on the proprietary internal ETL engine (Python) and dbt models, applying software engineering standards (testing, documentation, CI/CD)",
         "Set up data contracts and schema validation to proactively catch data quality issues across markets",
@@ -76,7 +76,7 @@ export const experiences = [
       ],
       fr: [
         "Seul Data Engineer sur site, interlocuteur principal pour les équipes Sales Ops et Partnership sur les marchés FR, ES & IT",
-        "Conçepteur et développeur d'un éditeur de configuration YAML ➜ permet aux stakeholders non-techniques de configurer des pipelines en toute sécurité, évitant erreurs de syntaxe et réduisant le temps de support",
+        "Concepteur et développeur d'un éditeur de configuration YAML ➜ permet aux stakeholders non-techniques de configurer des pipelines en toute sécurité, évitant erreurs de syntaxe et réduisant le temps de support",
         "Développement de fonctionnalités sur le moteur ETL interne (Python) et des modèles dbt, avec les standards du génie logiciel (tests, documentation, CI/CD)",
         "Mise en place de data contracts et de validation de schéma pour détecter les problèmes de qualité en amont",
         "Implémentation de processus d'alerting pour la surveillance proactive des pipelines",
@@ -152,7 +152,7 @@ export const experiences = [
       ],
       fr: [
         "Développement d'une application de configuration pour un ERP (EBP) via des fichiers XML",
-        "Conçeption et développement d'une interface Java GUI (Swing) pour configurer et utiliser les données",
+        "Conception et développement d'une interface Java GUI (Swing) pour configurer et utiliser les données",
         "Automatisation du traitement des fichiers XML pour faciliter l'intégration de l'ERP en entreprise",
       ],
     } as BilArr,
