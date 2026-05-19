@@ -68,6 +68,7 @@ function TimelineEntry({
   sub,
   intro,
   points,
+  first,
   last,
 }: {
   title: string;
@@ -75,11 +76,21 @@ function TimelineEntry({
   sub: string;
   intro?: string;
   points: string[];
+  first?: boolean;
   last?: boolean;
 }) {
+  const lineVariant =
+    first && last
+      ? s.railOnlyMarker
+      : first
+        ? s.railFromMarker
+        : last
+          ? s.railToMarker
+          : s.railFull;
   return (
     <View style={s.entryRow} wrap={false}>
       <View style={s.rail}>
+        <View style={[s.railLineBase, lineVariant]} />
         <View style={s.marker} />
       </View>
       <View style={last ? s.entryBodyLast : s.entryBody}>
@@ -153,6 +164,7 @@ export default function CvDocument({ lang }: { lang: Lang }) {
               sub={`${e.company} · ${e.location}`}
               intro={(e as { summary?: Bil }).summary?.[lang]}
               points={e.highlights[lang]}
+              first={i === 0}
               last={i === experiences.length - 1}
             />
           ))}
@@ -165,8 +177,13 @@ export default function CvDocument({ lang }: { lang: Lang }) {
               key={ed.school[lang] + ed.period}
               title={ed.degree[lang]}
               date={ed.period}
-              sub={ed.school[lang]}
+              sub={
+                "location" in ed && ed.location
+                  ? `${ed.school[lang]}, ${ed.location}`
+                  : ed.school[lang]
+              }
               points={ed.details[lang]}
+              first={i === 0}
               last={i === education.length - 1}
             />
           ))}

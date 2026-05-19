@@ -20,21 +20,21 @@ export const cvStyles = StyleSheet.create({
 
   // ── Header ──────────────────────────────────────────────────────────────
   header: { flexDirection: "row", alignItems: "center", marginBottom: 13 },
+  // Reference: 78u square stroked navy, "EC" in OpenSans-SemiBold ≈ 25pt navy.
   monogram: {
-    width: 52,
-    height: 52,
-    backgroundColor: NAVY,
-    borderRadius: 8,
+    width: 48,
+    height: 48,
+    borderWidth: 0.8,
+    borderColor: NAVY,
     alignItems: "center",
     justifyContent: "center",
     marginRight: 18,
   },
   monogramText: {
-    fontFamily: "Quicksand",
-    fontWeight: "bold",
-    fontSize: 21,
-    color: "#ffffff",
-    letterSpacing: 0.5,
+    fontFamily: "Open Sans",
+    fontWeight: "semibold",
+    fontSize: 22,
+    color: NAVY,
   },
   headerText: { flex: 1, justifyContent: "center" },
   name: {
@@ -85,12 +85,20 @@ export const cvStyles = StyleSheet.create({
 
   // ── Timeline entry (experience / education) ─────────────────────────────
   entryRow: { flexDirection: "row" },
-  rail: {
-    width: 16,
-    borderLeftWidth: 1.25,
-    borderLeftColor: NAVY,
-    position: "relative",
+  rail: { width: 16, position: "relative" },
+  // The continuous navy line is rendered as an absolutely-positioned View so we
+  // can trim its top on the first entry and its bottom on the last entry,
+  // ending exactly at the first / last marker like the reference.
+  railLineBase: {
+    position: "absolute",
+    left: 0,
+    width: 1.25,
+    backgroundColor: NAVY,
   },
+  railFull: { top: 0, bottom: 0 }, // middle entry: full row height
+  railFromMarker: { top: 3, bottom: 0 }, // first entry: starts at marker
+  railToMarker: { top: 0, height: 8 }, // last entry: stops at marker bottom
+  railOnlyMarker: { top: 3, height: 5 }, // single-entry section
   marker: {
     // 5pt square centred on the 1.25pt rail line → left = -(5-1.25)/2 = -1.875
     position: "absolute",
