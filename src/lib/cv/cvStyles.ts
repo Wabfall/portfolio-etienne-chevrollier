@@ -8,17 +8,17 @@ export const RULE = "#dfdfdf"; // thin full-width line under section titles
 // Scale reference: reference layout is 980u wide → 612pt (×0.6245 pt/unit).
 export const cvStyles = StyleSheet.create({
   page: {
-    paddingTop: 40,
-    paddingBottom: 44,
+    paddingTop: 36,
+    paddingBottom: 36,
     paddingHorizontal: 45,
     fontSize: 9,
     fontFamily: "Poppins",
     color: INK,
-    lineHeight: 1.45,
+    lineHeight: 1.4,
   },
 
   // ── Header ──────────────────────────────────────────────────────────────
-  header: { flexDirection: "row", alignItems: "center", marginBottom: 16 },
+  header: { flexDirection: "row", alignItems: "center", marginBottom: 13 },
   monogram: {
     width: 48,
     height: 48,
@@ -51,10 +51,10 @@ export const cvStyles = StyleSheet.create({
     letterSpacing: 0.6,
     lineHeight: 1.2,
   },
-  summary: { fontSize: 8.5, color: INK, marginBottom: 2, lineHeight: 1.5 },
+  summary: { fontSize: 8.5, color: INK, marginBottom: 2, lineHeight: 1.4 },
 
   // ── Section ─────────────────────────────────────────────────────────────
-  section: { marginTop: 16 },
+  section: { marginTop: 12 },
   sectionTitle: {
     fontFamily: "Quicksand",
     fontWeight: "bold",
@@ -62,12 +62,12 @@ export const cvStyles = StyleSheet.create({
     color: NAVY,
     textTransform: "uppercase",
     letterSpacing: 1.2,
-    marginBottom: 5,
+    marginBottom: 4,
   },
-  sectionRule: { height: 0.6, backgroundColor: RULE, marginBottom: 10 },
+  sectionRule: { height: 0.6, backgroundColor: RULE, marginBottom: 8 },
 
   // ── Contact ─────────────────────────────────────────────────────────────
-  infoRow: { flexDirection: "row", marginBottom: 9 },
+  infoRow: { flexDirection: "row", marginBottom: 7 },
   infoCol: { flex: 1, paddingRight: 10 },
   infoLabel: {
     fontFamily: "Open Sans",
@@ -97,7 +97,7 @@ export const cvStyles = StyleSheet.create({
     height: 6,
     backgroundColor: NAVY,
   },
-  entryBody: { flex: 1, paddingBottom: 13 },
+  entryBody: { flex: 1, paddingBottom: 9 },
   entryHeader: {
     flexDirection: "row",
     alignItems: "baseline",
@@ -113,20 +113,20 @@ export const cvStyles = StyleSheet.create({
   },
   entryDate: { fontSize: 8, color: INK },
   entryCompany: { fontSize: 8, color: INK, marginTop: 2 },
-  entryIntro: { fontSize: 8.5, color: INK, marginTop: 4, marginBottom: 2 },
+  entryIntro: { fontSize: 8.5, color: INK, marginTop: 3, marginBottom: 1 },
 
   // ── Bullets ─────────────────────────────────────────────────────────────
   bullet: {
     flexDirection: "row",
     alignItems: "flex-start",
-    marginTop: 2.5,
+    marginTop: 1.5,
     paddingRight: 6,
   },
-  bulletDot: { width: 10, fontSize: 8.5, color: NAVY, lineHeight: 1.45 },
-  bulletText: { flex: 1, fontSize: 8.5, color: INK, lineHeight: 1.45 },
+  bulletDot: { width: 10, fontSize: 8.5, color: NAVY, lineHeight: 1.4 },
+  bulletText: { flex: 1, fontSize: 8.5, color: INK, lineHeight: 1.4 },
 
   // ── Simple marked list (skills / languages / interests) ─────────────────
-  listItem: { flexDirection: "row", alignItems: "flex-start", marginBottom: 6 },
+  listItem: { flexDirection: "row", alignItems: "flex-start", marginBottom: 4 },
   listMarker: {
     width: 6,
     height: 6,
