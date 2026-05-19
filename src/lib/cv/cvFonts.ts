@@ -18,6 +18,7 @@ export function registerCvFonts() {
   Font.register({
     family: "Poppins",
     fonts: [
+      { src: "/fonts/Poppins-Light.ttf", fontWeight: "light" },
       { src: "/fonts/Poppins-Regular.ttf", fontWeight: "normal" },
       { src: "/fonts/Poppins-Medium.ttf", fontWeight: "medium" },
     ],

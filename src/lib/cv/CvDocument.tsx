@@ -55,7 +55,7 @@ function InfoCol({ label, children }: { label: string; children: ReactNode }) {
 function Bullet({ children }: { children: string }) {
   return (
     <View style={s.bullet}>
-      <Text style={s.bulletDot}>•</Text>
+      <View style={s.bulletSquare} />
       <Text style={s.bulletText}>{clean(children)}</Text>
     </View>
   );
@@ -68,19 +68,21 @@ function TimelineEntry({
   sub,
   intro,
   points,
+  last,
 }: {
   title: string;
   date: string;
   sub: string;
   intro?: string;
   points: string[];
+  last?: boolean;
 }) {
   return (
     <View style={s.entryRow} wrap={false}>
       <View style={s.rail}>
         <View style={s.marker} />
       </View>
-      <View style={s.entryBody}>
+      <View style={last ? s.entryBodyLast : s.entryBody}>
         <View style={s.entryHeader}>
           <Text style={s.entryRole}>{title}</Text>
           <Text style={s.entryDate}>{date}</Text>
@@ -143,7 +145,7 @@ export default function CvDocument({ lang }: { lang: Lang }) {
 
         {/* Experience */}
         <Section title={labels.work[lang]}>
-          {experiences.map((e) => (
+          {experiences.map((e, i) => (
             <TimelineEntry
               key={e.company + e.period}
               title={e.role[lang]}
@@ -151,19 +153,21 @@ export default function CvDocument({ lang }: { lang: Lang }) {
               sub={`${e.company} · ${e.location}`}
               intro={e.type[lang]}
               points={e.highlights[lang]}
+              last={i === experiences.length - 1}
             />
           ))}
         </Section>
 
         {/* Education */}
         <Section title={labels.education[lang]}>
-          {education.map((ed) => (
+          {education.map((ed, i) => (
             <TimelineEntry
               key={ed.school[lang] + ed.period}
               title={ed.degree[lang]}
               date={ed.period}
               sub={ed.school[lang]}
               points={ed.details[lang]}
+              last={i === education.length - 1}
             />
           ))}
         </Section>
