@@ -47,7 +47,7 @@ export default function Navbar() {
                 </a>
               </li>
             ))}
-            <li key="/cv">
+            <li>
               <a href="/cv" className="text-sm text-blue-600 hover:text-blue-700 transition-colors font-semibold">
                 {ui.nav.cv[lang]}
               </a>
@@ -118,7 +118,6 @@ export default function Navbar() {
             </a>
           ))}
           <a
-            key="/cv"
             href="/cv"
             onClick={() => setMenuOpen(false)}
             className="block py-2 text-blue-600 hover:text-blue-700 transition-colors font-semibold"
