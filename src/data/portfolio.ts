@@ -63,6 +63,10 @@ export const experiences = [
     type: { en: "French International Postgraduate Program (V.I.E)", fr: "VIE (Volontariat International Entreprise)" } as Bil,
     period: "Oct 2025 – Present",
     location: "Barcelona, Spain · Hybrid",
+    summary: {
+      en: "Sole onsite Data Engineer for the FR, ES & IT markets — supporting a fast-growing data stack in transition from a legacy setup toward a reliable, data-driven platform.",
+      fr: "Seul Data Engineer sur site pour les marchés FR, ES & IT — accompagnement d'une stack data en scale-up dans sa transition d'un setup legacy vers une plateforme fiable et data-driven.",
+    } as Bil,
     category: "both" as Category,
     icon: "/logos/papernest.svg" as string | null,
     highlights: {
@@ -92,6 +96,10 @@ export const experiences = [
     type: { en: "Apprenticeship", fr: "Alternance" } as Bil,
     period: "Sept 2022 – Aug 2025",
     location: "Nantes, France · Hybrid",
+    summary: {
+      en: "Full-stack development of an internal log-analysis platform and contributions across the data team's core ETL and governance tooling.",
+      fr: "Développement full-stack d'une plateforme interne d'analyse de logs et contributions à l'ETL central ainsi qu'aux outils de gouvernance de l'équipe data.",
+    } as Bil,
     category: "both" as Category,
     icon: "/logos/bouygues-telecom.svg" as string | null,
     highlights: {

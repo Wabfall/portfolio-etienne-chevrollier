@@ -21,19 +21,20 @@ export const cvStyles = StyleSheet.create({
   // ── Header ──────────────────────────────────────────────────────────────
   header: { flexDirection: "row", alignItems: "center", marginBottom: 13 },
   monogram: {
-    width: 48,
-    height: 48,
-    borderWidth: 1,
-    borderColor: NAVY,
+    width: 52,
+    height: 52,
+    backgroundColor: NAVY,
+    borderRadius: 8,
     alignItems: "center",
     justifyContent: "center",
     marginRight: 18,
   },
   monogramText: {
-    fontFamily: "Open Sans",
-    fontWeight: "semibold",
-    fontSize: 18,
-    color: NAVY,
+    fontFamily: "Quicksand",
+    fontWeight: "bold",
+    fontSize: 21,
+    color: "#ffffff",
+    letterSpacing: 0.5,
   },
   headerText: { flex: 1, justifyContent: "center" },
   name: {
@@ -91,14 +92,15 @@ export const cvStyles = StyleSheet.create({
     position: "relative",
   },
   marker: {
+    // 5pt square centred on the 1.25pt rail line → left = -(5-1.25)/2 = -1.875
     position: "absolute",
-    left: -3.1,
-    top: 2.5,
+    left: -1.9,
+    top: 3,
     width: 5,
     height: 5,
     backgroundColor: NAVY,
   },
-  entryBody: { flex: 1, paddingBottom: 11 },
+  entryBody: { flex: 1, paddingBottom: 14 },
   entryBodyLast: { flex: 1, paddingBottom: 0 },
   entryHeader: {
     flexDirection: "row",
@@ -115,23 +117,17 @@ export const cvStyles = StyleSheet.create({
   },
   entryDate: { fontSize: 8, color: INK },
   entryCompany: { fontSize: 8, color: INK, marginTop: 2 },
-  entryIntro: { fontSize: 8.5, color: INK, marginTop: 3, marginBottom: 1 },
+  entryIntro: { fontSize: 8.5, color: INK, marginTop: 5, marginBottom: 4, lineHeight: 1.5 },
 
-  // ── Bullets ─────────────────────────────────────────────────────────────
+  // ── Bullets (round dots for a lighter feel) ─────────────────────────────
   bullet: {
     flexDirection: "row",
     alignItems: "flex-start",
-    marginTop: 3,
+    marginTop: 2,
     paddingRight: 6,
   },
-  bulletSquare: {
-    width: 4,
-    height: 4,
-    backgroundColor: NAVY,
-    marginRight: 7,
-    marginTop: 3.5,
-  },
-  bulletText: { flex: 1, fontSize: 8.5, color: INK, lineHeight: 1.4 },
+  bulletDot: { width: 9, fontSize: 9, color: NAVY, lineHeight: 1.4 },
+  bulletText: { flex: 1, fontSize: 8.5, color: INK, lineHeight: 1.45 },
 
   // ── Simple marked list (skills / languages / interests) ─────────────────
   listItem: { flexDirection: "row", alignItems: "flex-start", marginBottom: 4 },

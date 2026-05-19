@@ -1,6 +1,6 @@
 import { Document, Page, View, Text, Link } from "@react-pdf/renderer";
 import type { ReactNode } from "react";
-import type { Lang } from "../lang";
+import type { Bil, Lang } from "../lang";
 import { personal, experiences, education, skills, cvExtra } from "../../data/portfolio";
 import { cvStyles as s } from "./cvStyles";
 import { registerCvFonts } from "./cvFonts";
@@ -55,7 +55,7 @@ function InfoCol({ label, children }: { label: string; children: ReactNode }) {
 function Bullet({ children }: { children: string }) {
   return (
     <View style={s.bullet}>
-      <View style={s.bulletSquare} />
+      <Text style={s.bulletDot}>•</Text>
       <Text style={s.bulletText}>{clean(children)}</Text>
     </View>
   );
@@ -151,6 +151,7 @@ export default function CvDocument({ lang }: { lang: Lang }) {
               title={e.role[lang]}
               date={e.period}
               sub={`${e.company} · ${e.location}`}
+              intro={(e as { summary?: Bil }).summary?.[lang]}
               points={e.highlights[lang]}
               last={i === experiences.length - 1}
             />
