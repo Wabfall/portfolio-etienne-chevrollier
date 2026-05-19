@@ -3,6 +3,9 @@ import type { ReactNode } from "react";
 import type { Lang } from "../lang";
 import { personal, experiences, education, skills, cvExtra } from "../../data/portfolio";
 import { cvStyles as s } from "./cvStyles";
+import { registerCvFonts } from "./cvFonts";
+
+registerCvFonts();
 
 const labels = {
   contact: { en: "Contact", fr: "Coordonnées" },
@@ -49,6 +52,40 @@ function Bullet({ children }: { children: string }) {
     <View style={s.bullet}>
       <Text style={s.bulletDot}>•</Text>
       <Text style={s.bulletText}>{children}</Text>
+    </View>
+  );
+}
+
+/** One entry on the vertical timeline rail (continuous navy line + square marker). */
+function TimelineEntry({
+  title,
+  date,
+  sub,
+  intro,
+  points,
+}: {
+  title: string;
+  date: string;
+  sub: string;
+  intro?: string;
+  points: string[];
+}) {
+  return (
+    <View style={s.entryRow} wrap={false}>
+      <View style={s.rail}>
+        <View style={s.marker} />
+      </View>
+      <View style={s.entryBody}>
+        <View style={s.entryHeader}>
+          <Text style={s.entryRole}>{title}</Text>
+          <Text style={s.entryDate}>{date}</Text>
+        </View>
+        <Text style={s.entryCompany}>{sub}</Text>
+        {intro ? <Text style={s.entryIntro}>{intro}</Text> : null}
+        {points.map((p, i) => (
+          <Bullet key={i}>{p}</Bullet>
+        ))}
+      </View>
     </View>
   );
 }
@@ -102,37 +139,27 @@ export default function CvDocument({ lang }: { lang: Lang }) {
         {/* Experience */}
         <Section title={labels.work[lang]}>
           {experiences.map((e) => (
-            <View style={s.entry} key={e.company + e.period} wrap={false}>
-              <View style={s.entryHeader}>
-                <View style={s.marker} />
-                <Text style={s.entryRole}>{e.role[lang]}</Text>
-                <Text style={s.entryDate}>{e.period}</Text>
-              </View>
-              <Text style={s.entryCompany}>
-                {e.company} · {e.location}
-              </Text>
-              <Text style={s.entryIntro}>{e.type[lang]}</Text>
-              {e.highlights[lang].map((h, i) => (
-                <Bullet key={i}>{h}</Bullet>
-              ))}
-            </View>
+            <TimelineEntry
+              key={e.company + e.period}
+              title={e.role[lang]}
+              date={e.period}
+              sub={`${e.company} · ${e.location}`}
+              intro={e.type[lang]}
+              points={e.highlights[lang]}
+            />
           ))}
         </Section>
 
         {/* Education */}
         <Section title={labels.education[lang]}>
           {education.map((ed) => (
-            <View style={s.entry} key={ed.school[lang] + ed.period} wrap={false}>
-              <View style={s.entryHeader}>
-                <View style={s.marker} />
-                <Text style={s.entryRole}>{ed.degree[lang]}</Text>
-                <Text style={s.entryDate}>{ed.period}</Text>
-              </View>
-              <Text style={s.entryCompany}>{ed.school[lang]}</Text>
-              {ed.details[lang].map((d, i) => (
-                <Bullet key={i}>{d}</Bullet>
-              ))}
-            </View>
+            <TimelineEntry
+              key={ed.school[lang] + ed.period}
+              title={ed.degree[lang]}
+              date={ed.period}
+              sub={ed.school[lang]}
+              points={ed.details[lang]}
+            />
           ))}
         </Section>
 

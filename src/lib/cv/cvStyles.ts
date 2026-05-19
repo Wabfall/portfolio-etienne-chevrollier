@@ -1,127 +1,131 @@
 import { StyleSheet } from "@react-pdf/renderer";
 
-// Palette sampled from the reference CV (clean steel-blue accents on navy text)
-export const ACCENT = "#5a7a96"; // section titles, markers
-export const ACCENT_LINE = "#cdd9e3"; // thin rule under section titles
-const TEXT_DARK = "#1c2b39"; // name, entry titles, values
-const TEXT_BODY = "#4b5563"; // paragraphs, bullets
-const TEXT_MUTED = "#6b7280"; // company / school, subtitle
-const TEXT_FAINT = "#9aa3ad"; // dates
+// Exact palette extracted from the reference CV — only three inks are used.
+export const NAVY = "#002e58"; // section titles, monogram, timeline, markers, labels
+const INK = "#363d49"; // name, entry titles, body text, dates, company
+export const RULE = "#dfdfdf"; // thin full-width line under section titles
 
+// Scale reference: reference layout is 980u wide → 612pt (×0.6245 pt/unit).
 export const cvStyles = StyleSheet.create({
   page: {
-    paddingVertical: 40,
-    paddingHorizontal: 44,
+    paddingTop: 40,
+    paddingBottom: 44,
+    paddingHorizontal: 45,
     fontSize: 9,
-    fontFamily: "Helvetica",
-    color: TEXT_BODY,
+    fontFamily: "Poppins",
+    color: INK,
     lineHeight: 1.45,
   },
 
   // ── Header ──────────────────────────────────────────────────────────────
-  header: { flexDirection: "row", alignItems: "center", marginBottom: 12 },
+  header: { flexDirection: "row", alignItems: "center", marginBottom: 14 },
   monogram: {
-    width: 46,
-    height: 46,
-    borderWidth: 1.5,
-    borderColor: TEXT_DARK,
+    width: 48,
+    height: 48,
+    borderWidth: 1,
+    borderColor: NAVY,
     alignItems: "center",
     justifyContent: "center",
-    marginRight: 16,
+    marginRight: 18,
   },
   monogramText: {
-    fontSize: 16,
-    fontFamily: "Helvetica-Bold",
-    color: TEXT_DARK,
+    fontFamily: "Open Sans",
+    fontWeight: "semibold",
+    fontSize: 18,
+    color: NAVY,
   },
-  name: { fontSize: 26, fontFamily: "Helvetica-Bold", color: TEXT_DARK },
+  name: {
+    fontFamily: "Quicksand",
+    fontWeight: "bold",
+    fontSize: 24,
+    color: INK,
+  },
   subtitle: {
+    fontFamily: "Quicksand",
     fontSize: 9.5,
-    color: TEXT_MUTED,
+    color: INK,
     textTransform: "uppercase",
-    letterSpacing: 0.5,
+    letterSpacing: 0.6,
     marginTop: 3,
   },
-  summary: { fontSize: 9, color: TEXT_BODY, marginBottom: 4 },
+  summary: { fontSize: 8.5, color: INK, marginBottom: 2 },
 
   // ── Section ─────────────────────────────────────────────────────────────
   section: { marginTop: 16 },
   sectionTitle: {
+    fontFamily: "Quicksand",
+    fontWeight: "bold",
     fontSize: 12,
-    color: ACCENT,
+    color: NAVY,
     textTransform: "uppercase",
-    letterSpacing: 1,
-    marginBottom: 4,
+    letterSpacing: 1.2,
+    marginBottom: 5,
   },
-  sectionRule: { height: 1, backgroundColor: ACCENT_LINE, marginBottom: 9 },
+  sectionRule: { height: 0.6, backgroundColor: RULE, marginBottom: 10 },
 
   // ── Contact ─────────────────────────────────────────────────────────────
-  infoRow: { flexDirection: "row", marginBottom: 8 },
+  infoRow: { flexDirection: "row", marginBottom: 9 },
   infoCol: { flex: 1, paddingRight: 10 },
   infoLabel: {
-    fontSize: 8,
-    fontFamily: "Helvetica-Bold",
-    color: ACCENT,
+    fontFamily: "Open Sans",
+    fontWeight: "semibold",
+    fontSize: 7.5,
+    color: NAVY,
     textTransform: "uppercase",
     letterSpacing: 0.5,
     marginBottom: 2,
   },
-  infoValue: { fontSize: 9, color: TEXT_DARK },
-  infoLink: { fontSize: 9, color: TEXT_DARK, textDecoration: "none" },
+  infoValue: { fontSize: 8.5, color: INK },
+  infoLink: { fontSize: 8.5, color: INK, textDecoration: "none" },
 
-  // ── Entry (experience / education) ──────────────────────────────────────
-  entry: { marginBottom: 11 },
-  entryHeader: { flexDirection: "row", alignItems: "center" },
+  // ── Timeline entry (experience / education) ─────────────────────────────
+  entryRow: { flexDirection: "row" },
+  rail: {
+    width: 16,
+    borderLeftWidth: 1.25,
+    borderLeftColor: NAVY,
+    position: "relative",
+  },
   marker: {
-    width: 5,
-    height: 5,
-    backgroundColor: ACCENT,
-    marginRight: 7,
+    position: "absolute",
+    left: -3.5,
+    top: 2.5,
+    width: 6,
+    height: 6,
+    backgroundColor: NAVY,
+  },
+  entryBody: { flex: 1, paddingBottom: 13 },
+  entryHeader: {
+    flexDirection: "row",
+    alignItems: "baseline",
+    justifyContent: "space-between",
   },
   entryRole: {
-    flex: 1,
+    fontFamily: "Quicksand",
+    fontWeight: "bold",
     fontSize: 11.5,
-    fontFamily: "Helvetica-Bold",
-    color: TEXT_DARK,
-  },
-  entryDate: { fontSize: 8.5, color: TEXT_FAINT },
-  entryCompany: {
-    fontSize: 8.5,
-    color: TEXT_MUTED,
-    marginLeft: 12,
-    marginTop: 2,
-  },
-  entryIntro: {
-    fontSize: 9,
-    color: TEXT_BODY,
-    marginLeft: 12,
-    marginTop: 4,
-    marginBottom: 2,
-  },
-
-  // ── Bullets ─────────────────────────────────────────────────────────────
-  bullet: {
-    flexDirection: "row",
-    marginLeft: 12,
-    marginBottom: 1.5,
+    color: INK,
+    flex: 1,
     paddingRight: 8,
   },
-  bulletDot: { width: 9, fontSize: 9, color: ACCENT },
-  bulletText: { flex: 1, fontSize: 9, color: TEXT_BODY },
+  entryDate: { fontSize: 8, color: INK },
+  entryCompany: { fontSize: 8, color: INK, marginTop: 2 },
+  entryIntro: { fontSize: 8.5, color: INK, marginTop: 4, marginBottom: 2 },
 
-  // ── Simple marked list (skills / languages) ─────────────────────────────
-  listItem: {
-    flexDirection: "row",
-    alignItems: "flex-start",
-    marginBottom: 4,
-  },
+  // ── Bullets ─────────────────────────────────────────────────────────────
+  bullet: { flexDirection: "row", marginTop: 2, paddingRight: 6 },
+  bulletDot: { width: 9, fontSize: 8.5, color: NAVY },
+  bulletText: { flex: 1, fontSize: 8.5, color: INK },
+
+  // ── Simple marked list (skills / languages / interests) ─────────────────
+  listItem: { flexDirection: "row", alignItems: "flex-start", marginBottom: 5 },
   listMarker: {
-    width: 4,
-    height: 4,
-    backgroundColor: ACCENT,
-    marginRight: 7,
-    marginTop: 3.5,
+    width: 6,
+    height: 6,
+    backgroundColor: NAVY,
+    marginRight: 8,
+    marginTop: 2.5,
   },
-  listText: { flex: 1, fontSize: 9, color: TEXT_BODY },
-  listLabel: { fontFamily: "Helvetica-Bold", color: TEXT_DARK },
+  listText: { flex: 1, fontSize: 8.5, color: INK },
+  listLabel: { fontFamily: "Poppins", fontWeight: "medium", color: INK },
 });
