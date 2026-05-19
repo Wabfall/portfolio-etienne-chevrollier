@@ -28,6 +28,11 @@ function initials(name: string): string {
     .toUpperCase();
 }
 
+/** Replace glyphs absent from the embedded latin fonts (e.g. the ➜ arrow). */
+function clean(t: string): string {
+  return t.replace(/[➜→]/g, "—");
+}
+
 function Section({ title, children }: { title: string; children: ReactNode }) {
   return (
     <View style={s.section}>
@@ -51,7 +56,7 @@ function Bullet({ children }: { children: string }) {
   return (
     <View style={s.bullet}>
       <Text style={s.bulletDot}>•</Text>
-      <Text style={s.bulletText}>{children}</Text>
+      <Text style={s.bulletText}>{clean(children)}</Text>
     </View>
   );
 }
@@ -81,7 +86,7 @@ function TimelineEntry({
           <Text style={s.entryDate}>{date}</Text>
         </View>
         <Text style={s.entryCompany}>{sub}</Text>
-        {intro ? <Text style={s.entryIntro}>{intro}</Text> : null}
+        {intro ? <Text style={s.entryIntro}>{clean(intro)}</Text> : null}
         {points.map((p, i) => (
           <Bullet key={i}>{p}</Bullet>
         ))}
@@ -99,12 +104,12 @@ export default function CvDocument({ lang }: { lang: Lang }) {
           <View style={s.monogram}>
             <Text style={s.monogramText}>{initials(personal.name)}</Text>
           </View>
-          <View>
+          <View style={s.headerText}>
             <Text style={s.name}>{personal.name}</Text>
             <Text style={s.subtitle}>{personal.title[lang]}</Text>
           </View>
         </View>
-        <Text style={s.summary}>{personal.tagline[lang]}</Text>
+        <Text style={s.summary}>{clean(personal.tagline[lang])}</Text>
 
         {/* Contact */}
         <Section title={labels.contact[lang]}>
@@ -166,7 +171,7 @@ export default function CvDocument({ lang }: { lang: Lang }) {
         {/* Skills */}
         <Section title={labels.skills[lang]}>
           {skills.map((sk) => (
-            <View style={s.listItem} key={sk.name[lang]}>
+            <View style={s.listItem} key={sk.name[lang]} wrap={false}>
               <View style={s.listMarker} />
               <Text style={s.listText}>
                 <Text style={s.listLabel}>{sk.name[lang]} : </Text>
@@ -179,7 +184,7 @@ export default function CvDocument({ lang }: { lang: Lang }) {
         {/* Languages */}
         <Section title={labels.languages[lang]}>
           {cvExtra.languages.map((l) => (
-            <View style={s.listItem} key={l.name.en}>
+            <View style={s.listItem} key={l.name.en} wrap={false}>
               <View style={s.listMarker} />
               <Text style={s.listText}>
                 <Text style={s.listLabel}>{l.name[lang]}</Text> — {l.level[lang]}
@@ -191,7 +196,7 @@ export default function CvDocument({ lang }: { lang: Lang }) {
         {/* Interests */}
         <Section title={labels.hobbies[lang]}>
           {cvExtra.hobbies.map((h) => (
-            <View style={s.listItem} key={h.category.en}>
+            <View style={s.listItem} key={h.category.en} wrap={false}>
               <View style={s.listMarker} />
               <Text style={s.listText}>
                 <Text style={s.listLabel}>{h.category[lang]} : </Text>

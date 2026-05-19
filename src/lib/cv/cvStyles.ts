@@ -18,7 +18,7 @@ export const cvStyles = StyleSheet.create({
   },
 
   // ── Header ──────────────────────────────────────────────────────────────
-  header: { flexDirection: "row", alignItems: "center", marginBottom: 14 },
+  header: { flexDirection: "row", alignItems: "center", marginBottom: 16 },
   monogram: {
     width: 48,
     height: 48,
@@ -34,11 +34,14 @@ export const cvStyles = StyleSheet.create({
     fontSize: 18,
     color: NAVY,
   },
+  headerText: { flex: 1, justifyContent: "center" },
   name: {
     fontFamily: "Quicksand",
     fontWeight: "bold",
     fontSize: 24,
     color: INK,
+    lineHeight: 1.2,
+    marginBottom: 4,
   },
   subtitle: {
     fontFamily: "Quicksand",
@@ -46,9 +49,9 @@ export const cvStyles = StyleSheet.create({
     color: INK,
     textTransform: "uppercase",
     letterSpacing: 0.6,
-    marginTop: 3,
+    lineHeight: 1.2,
   },
-  summary: { fontSize: 8.5, color: INK, marginBottom: 2 },
+  summary: { fontSize: 8.5, color: INK, marginBottom: 2, lineHeight: 1.5 },
 
   // ── Section ─────────────────────────────────────────────────────────────
   section: { marginTop: 16 },
@@ -113,12 +116,17 @@ export const cvStyles = StyleSheet.create({
   entryIntro: { fontSize: 8.5, color: INK, marginTop: 4, marginBottom: 2 },
 
   // ── Bullets ─────────────────────────────────────────────────────────────
-  bullet: { flexDirection: "row", marginTop: 2, paddingRight: 6 },
-  bulletDot: { width: 9, fontSize: 8.5, color: NAVY },
-  bulletText: { flex: 1, fontSize: 8.5, color: INK },
+  bullet: {
+    flexDirection: "row",
+    alignItems: "flex-start",
+    marginTop: 2.5,
+    paddingRight: 6,
+  },
+  bulletDot: { width: 10, fontSize: 8.5, color: NAVY, lineHeight: 1.45 },
+  bulletText: { flex: 1, fontSize: 8.5, color: INK, lineHeight: 1.45 },
 
   // ── Simple marked list (skills / languages / interests) ─────────────────
-  listItem: { flexDirection: "row", alignItems: "flex-start", marginBottom: 5 },
+  listItem: { flexDirection: "row", alignItems: "flex-start", marginBottom: 6 },
   listMarker: {
     width: 6,
     height: 6,
