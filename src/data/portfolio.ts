@@ -67,6 +67,52 @@ export const experiences = [
       en: "Sole onsite Data Engineer for the FR, ES & IT markets — supporting a fast-growing data stack in transition from a legacy setup toward a reliable, data-driven platform.",
       fr: "Seul Data Engineer sur site pour les marchés FR, ES & IT — accompagnement d'une stack data en scale-up dans sa transition d'un setup legacy vers une plateforme fiable et data-driven.",
     } as Bil,
+    groups: [
+      {
+        intro: {
+          en: "Reliability & engineering standards on the in-house ETL",
+          fr: "Fiabilité & standards d'ingénierie sur l'ETL interne",
+        } as Bil,
+        bullets: {
+          en: [
+            "Developing features on the proprietary internal ETL engine (Python) and dbt models, applying software engineering standards (testing, documentation, CI/CD)",
+            "Set up data contracts and schema validation to proactively catch data quality issues across markets",
+            "Implemented alerting processes for pipeline monitoring and proactive incident detection",
+          ],
+          fr: [
+            "Développement de fonctionnalités sur le moteur ETL interne propriétaire (Python) et les modèles dbt, avec les standards du génie logiciel (tests, documentation, CI/CD)",
+            "Mise en place de data contracts et de validation de schéma pour détecter les problèmes de qualité en amont",
+            "Implémentation de processus d'alerting pour la surveillance des pipelines et la détection proactive d'incidents",
+          ],
+        } as BilArr,
+      },
+      {
+        intro: {
+          en: "Internal tools for business teams",
+          fr: "Outils internes pour les équipes métier",
+        } as Bil,
+        bullets: {
+          en: [
+            "Designed & developed a custom YAML Configuration Editor — non-technical stakeholders configure pipelines safely (no syntax errors, reduced support time)",
+            "Built AI-powered internal tools to accelerate workflows for both technical and non-technical teams",
+          ],
+          fr: [
+            "Conception & développement d'un éditeur de configuration YAML — les stakeholders non-techniques configurent les pipelines en toute sécurité (zéro erreur de syntaxe, support allégé)",
+            "Outils internes propulsés par l'IA pour accélérer les workflows des équipes tech et non-tech",
+          ],
+        } as BilArr,
+      },
+      {
+        intro: {
+          en: "Cross-functional role across the FR, ES & IT markets",
+          fr: "Rôle transverse sur les marchés FR, ES & IT",
+        } as Bil,
+        bullets: {
+          en: ["Sole Data Engineer onsite, primary point of contact for Sales Ops and Partnership"],
+          fr: ["Seul Data Engineer sur site, interlocuteur principal des équipes Sales Ops et Partnership"],
+        } as BilArr,
+      },
+    ],
     category: "both" as Category,
     icon: "/logos/papernest.svg" as string | null,
     highlights: {
@@ -100,6 +146,60 @@ export const experiences = [
       en: "Full-stack development of an internal log-analysis platform and contributions across the data team's core ETL and governance tooling.",
       fr: "Développement full-stack d'une plateforme interne d'analyse de logs et contributions à l'ETL central ainsi qu'aux outils de gouvernance de l'équipe data.",
     } as Bil,
+    groups: [
+      {
+        intro: {
+          en: "Internal full-stack web app for log data visualization & analysis",
+          fr: "Application web interne de visualisation et d'analyse de logs",
+        } as Bil,
+        bullets: {
+          en: [
+            "Designed, architected and built the application autonomously (full-stack)",
+            "Stack: Spring Boot (back-end), React (front-end), ElasticSearch & MongoDB",
+            "Continuous improvement: support and new features driven by user feedback",
+            "Technical documentation with Docusaurus and Confluence",
+          ],
+          fr: [
+            "Conception, architecture et développement full-stack en autonomie",
+            "Stack : Spring Boot (back-end), React (front-end), ElasticSearch & MongoDB",
+            "Évolution continue : support et nouvelles fonctionnalités guidées par les retours utilisateurs",
+            "Documentation technique avec Docusaurus et Confluence",
+          ],
+        } as BilArr,
+      },
+      {
+        intro: {
+          en: "Enhancements to a SQL streaming module within an internal ETL",
+          fr: "Amélioration d'un module de streaming SQL au sein d'un ETL interne",
+        } as Bil,
+        bullets: {
+          en: [
+            "Automated documentation generation from Java code and Markdown with Docusaurus",
+            "Developed a streaming SQL data-processing module on Apache Flink (Java)",
+          ],
+          fr: [
+            "Automatisation de la documentation depuis le code Java et le Markdown avec Docusaurus",
+            "Développement d'un module de traitement de données en streaming SQL avec Apache Flink (Java)",
+          ],
+        } as BilArr,
+      },
+      {
+        intro: {
+          en: "Data Engineering for Data Governance",
+          fr: "Data Engineering au service de la Gouvernance des données",
+        } as Bil,
+        bullets: {
+          en: [
+            "Scripts supporting data governance within the IT department",
+            "Big Data stack: BigQuery, Teradata, Hadoop",
+          ],
+          fr: [
+            "Scripts pour la gouvernance des données au sein de la DSI",
+            "Stack Big Data : BigQuery, Teradata, Hadoop",
+          ],
+        } as BilArr,
+      },
+    ],
     category: "both" as Category,
     icon: "/logos/bouygues-telecom.svg" as string | null,
     highlights: {
@@ -173,7 +273,7 @@ export const experiences = [
 
 export const education = [
   {
-    school: { en: "ESIEA – Graduate School of Engineering", fr: "ESIEA – École d'Ingénieur·e·s d'un Numérique Utile" } as Bil,
+    school: { en: "ESIEA – Graduate School of Engineering", fr: "ESIEA - ÉCOLE D'INGÉNIEUR·E·S D'UN NUMÉRIQUE UTILE" } as Bil,
     degree: { en: "Master's Degree, Computer Science & Digital Technologies", fr: "Diplôme d'Ingénieur en Informatique & Technologies Numériques" } as Bil,
     period: "Sept 2022 – Aug 2025",
     location: "Laval, France",

@@ -20,11 +20,12 @@ export const cvStyles = StyleSheet.create({
 
   // ── Header ──────────────────────────────────────────────────────────────
   header: { flexDirection: "row", alignItems: "center", marginBottom: 13 },
-  // Reference: 78u square stroked navy, "EC" in OpenSans-SemiBold ≈ 25pt navy.
+  // Reference: 78u square stroked navy (≈49pt box, ≈0.6pt stroke),
+  // "EC" in OpenSans-SemiBold Tf 40 → ≈25pt navy.
   monogram: {
-    width: 48,
-    height: 48,
-    borderWidth: 0.8,
+    width: 49,
+    height: 49,
+    borderWidth: 0.7,
     borderColor: NAVY,
     alignItems: "center",
     justifyContent: "center",
@@ -33,8 +34,9 @@ export const cvStyles = StyleSheet.create({
   monogramText: {
     fontFamily: "Open Sans",
     fontWeight: "semibold",
-    fontSize: 22,
+    fontSize: 25,
     color: NAVY,
+    lineHeight: 1,
   },
   headerText: { flex: 1, justifyContent: "center" },
   name: {
@@ -126,6 +128,15 @@ export const cvStyles = StyleSheet.create({
   entryDate: { fontSize: 8, color: INK },
   entryCompany: { fontSize: 8, color: INK, marginTop: 2 },
   entryIntro: { fontSize: 8.5, color: INK, marginTop: 5, marginBottom: 4, lineHeight: 1.5 },
+  // Sub-project intro line (paragraph header before its bullet list)
+  groupIntro: {
+    fontFamily: "Poppins",
+    fontWeight: "normal",
+    fontSize: 9,
+    color: INK,
+    marginTop: 8,
+    marginBottom: 3,
+  },
 
   // ── Bullets (round dots for a lighter feel) ─────────────────────────────
   bullet: {
@@ -134,7 +145,7 @@ export const cvStyles = StyleSheet.create({
     marginTop: 2,
     paddingRight: 6,
   },
-  bulletDot: { width: 9, fontSize: 9, color: NAVY, lineHeight: 1.4 },
+  bulletDot: { width: 11, fontSize: 13, color: NAVY, lineHeight: 1.1 },
   bulletText: { flex: 1, fontSize: 8.5, color: INK, lineHeight: 1.45 },
 
   // ── Simple marked list (skills / languages / interests) ─────────────────

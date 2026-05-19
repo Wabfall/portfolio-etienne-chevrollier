@@ -1,6 +1,6 @@
 import { Document, Page, View, Text, Link } from "@react-pdf/renderer";
 import type { ReactNode } from "react";
-import type { Bil, Lang } from "../lang";
+import type { Bil, BilArr, Lang } from "../lang";
 import { personal, experiences, education, skills, cvExtra } from "../../data/portfolio";
 import { cvStyles as s } from "./cvStyles";
 import { registerCvFonts } from "./cvFonts";
@@ -62,12 +62,15 @@ function Bullet({ children }: { children: string }) {
 }
 
 /** One entry on the vertical timeline rail (continuous navy line + square marker). */
+type Group = { intro: string; bullets: string[] };
+
 function TimelineEntry({
   title,
   date,
   sub,
   intro,
   points,
+  groups,
   first,
   last,
 }: {
@@ -75,7 +78,8 @@ function TimelineEntry({
   date: string;
   sub: string;
   intro?: string;
-  points: string[];
+  points?: string[];
+  groups?: Group[];
   first?: boolean;
   last?: boolean;
 }) {
@@ -100,9 +104,16 @@ function TimelineEntry({
         </View>
         <Text style={s.entryCompany}>{sub}</Text>
         {intro ? <Text style={s.entryIntro}>{clean(intro)}</Text> : null}
-        {points.map((p, i) => (
-          <Bullet key={i}>{p}</Bullet>
-        ))}
+        {groups
+          ? groups.map((g, gi) => (
+              <View key={gi}>
+                <Text style={s.groupIntro}>{clean(g.intro)}</Text>
+                {g.bullets.map((b, bi) => (
+                  <Bullet key={bi}>{b}</Bullet>
+                ))}
+              </View>
+            ))
+          : points?.map((p, i) => <Bullet key={i}>{p}</Bullet>)}
       </View>
     </View>
   );
@@ -156,18 +167,28 @@ export default function CvDocument({ lang }: { lang: Lang }) {
 
         {/* Experience */}
         <Section title={labels.work[lang]}>
-          {experiences.map((e, i) => (
-            <TimelineEntry
-              key={e.company + e.period}
-              title={e.role[lang]}
-              date={e.period}
-              sub={`${e.company} · ${e.location}`}
-              intro={(e as { summary?: Bil }).summary?.[lang]}
-              points={e.highlights[lang]}
-              first={i === 0}
-              last={i === experiences.length - 1}
-            />
-          ))}
+          {experiences.map((e, i) => {
+            type GroupBil = { intro: Bil; bullets: BilArr };
+            type Extras = { summary?: Bil; groups?: GroupBil[] };
+            const ex = e as typeof e & Extras;
+            const groups = ex.groups?.map((g) => ({
+              intro: g.intro[lang],
+              bullets: g.bullets[lang],
+            }));
+            return (
+              <TimelineEntry
+                key={e.company + e.period}
+                title={e.role[lang]}
+                date={e.period}
+                sub={`${e.company} · ${e.location}`}
+                intro={groups ? undefined : ex.summary?.[lang]}
+                points={groups ? undefined : e.highlights[lang]}
+                groups={groups}
+                first={i === 0}
+                last={i === experiences.length - 1}
+              />
+            );
+          })}
         </Section>
 
         {/* Education */}
