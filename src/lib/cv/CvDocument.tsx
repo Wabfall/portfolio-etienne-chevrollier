@@ -151,7 +151,6 @@ export default function CvDocument({ lang }: { lang: Lang }) {
               title={e.role[lang]}
               date={e.period}
               sub={`${e.company} · ${e.location}`}
-              intro={e.type[lang]}
               points={e.highlights[lang]}
               last={i === experiences.length - 1}
             />
