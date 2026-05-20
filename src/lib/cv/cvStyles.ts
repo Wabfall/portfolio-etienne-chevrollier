@@ -19,7 +19,7 @@ export const cvStyles = StyleSheet.create({
   },
 
   // ── Header ──────────────────────────────────────────────────────────────
-  header: { flexDirection: "row", alignItems: "center", marginBottom: 13 },
+  header: { flexDirection: "row", alignItems: "flex-start", marginBottom: 13 },
   // Reference: 78u square stroked navy (≈49pt box, ≈0.6pt stroke),
   // "EC" in OpenSans-SemiBold Tf 40 → ≈25pt navy. The box's left edge sits
   // 1.9pt left of the content margin so it aligns vertically with the
@@ -31,6 +31,8 @@ export const cvStyles = StyleSheet.create({
     borderColor: NAVY,
     alignItems: "center",
     justifyContent: "center",
+    // optical: shift contents down a hair so EC sits on the box visual centre
+    paddingTop: 7,
     marginLeft: -1.9,
     marginRight: 16,
   },
@@ -40,11 +42,11 @@ export const cvStyles = StyleSheet.create({
     fontSize: 25,
     color: NAVY,
     lineHeight: 1,
-    // Optical centring: SemiBold sits a hair high in its line box.
-    marginTop: 2,
   },
-  // Name sits on the box centerline; subtitle hangs just below.
-  headerText: { flex: 1, justifyContent: "center", paddingTop: 2 },
+  // header uses alignItems flex-start; paddingTop pulls the name down so the
+  // name's vertical centre lands on the box's vertical centre (subtitle hangs
+  // freely below — reference behaviour, never weighs into the centring)
+  headerText: { flex: 1, paddingTop: 10 },
   name: {
     fontFamily: "Quicksand",
     fontWeight: "bold",
@@ -151,7 +153,7 @@ export const cvStyles = StyleSheet.create({
     marginTop: 2,
     paddingRight: 6,
   },
-  bulletDot: { width: 10, fontSize: 9, color: NAVY, lineHeight: 1.45 },
+  bulletDot: { width: 11, fontSize: 12, color: NAVY, lineHeight: 1.45 },
   bulletText: { flex: 1, fontSize: 8.5, color: INK, lineHeight: 1.45 },
 
   // ── Simple marked list (skills / languages / interests) ─────────────────
