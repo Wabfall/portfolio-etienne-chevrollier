@@ -12,7 +12,7 @@ export const personal = {
   location: "Barcelona, Catalonia, Spain",
   tagline: {
     en: "Data Engineer with a strong Software Engineering foundation. My strengths lie in understanding systems end-to-end, proposing solutions aligned with real business usage, and simplifying complex processes. From dbt pipelines and data contracts to AI-powered internal tools ➜ I bridge the gap between data infrastructure and the people who use it.",
-    fr: "Ingénieur Data avec une solide formation en génie logiciel. Mes points forts : comprendre les systèmes de bout en bout, proposer des solutions alignées avec les usages réels, et simplifier des processus complexes. Des pipelines dbt aux outils internes propulsés par l'IA ➜ je fais le lien entre l'infrastructure data et ceux qui l'utilisent.",
+    fr: "Ingénieur Data fort d'un solide bagage en génie logiciel, j'accompagne les équipes data et métier dans la transformation d'infrastructures complexes en systèmes robustes et pérennes : des pipelines fiables aux outils internes qui permettent aux parties prenantes d'exploiter la donnée en autonomie. L'ingénierie Data n'est pas un centre de coût, c'est un levier de performance et de croissance.",
   } as Bil,
   badge: { en: "Google Cloud Certified", fr: "Certifié Google Cloud" } as Bil,
   email: "etiennechevrollier@gmail.com",
@@ -94,11 +94,11 @@ export const experiences = [
         } as Bil,
         bullets: {
           en: [
-            "Designed & developed a custom YAML Configuration Editor — non-technical stakeholders configure pipelines safely (no syntax errors, reduced support time)",
+            "Designed & developed a custom YAML Configuration Editor. Pipeline build & test time cut by ~50%, incident investigation from 30–60 min down to under 2 min.",
             "Built AI-powered internal tools to accelerate workflows for both technical and non-technical teams",
           ],
           fr: [
-            "Conception & développement d'un éditeur de configuration YAML — les stakeholders non-techniques configurent les pipelines en toute sécurité (zéro erreur de syntaxe, support allégé)",
+            "Conception & développement d'un éditeur de configuration YAML. Temps de fabrication & test réduit de ~50%, investigation d'incidents de 30–60 min à moins de 2 min.",
             "Outils internes propulsés par l'IA pour accélérer les workflows des équipes tech et non-tech",
           ],
         } as BilArr,
@@ -119,7 +119,7 @@ export const experiences = [
     highlights: {
       en: [
         "Acting as the sole Data Engineer onsite, primary point of contact for Sales Ops and Partnership across FR, ES & IT markets",
-        "Designed & developed a custom YAML Configuration Editor ➜ enables non-technical stakeholders to safely configure pipelines, preventing syntax errors and reducing support time",
+        "Designed & developed a custom YAML Configuration Editor ➜ pipeline build & test time cut by ~50%, incident investigation from 30–60 min to under 2 min",
         "Developing features on the proprietary internal ETL engine (Python) and dbt models, applying software engineering standards (testing, documentation, CI/CD)",
         "Set up data contracts and schema validation to proactively catch data quality issues across markets",
         "Implemented alerting processes for pipeline monitoring and proactive incident detection",
@@ -127,7 +127,7 @@ export const experiences = [
       ],
       fr: [
         "Seul Data Engineer sur site, interlocuteur principal pour les équipes Sales Ops et Partnership sur les marchés FR, ES & IT",
-        "Concepteur et développeur d'un éditeur de configuration YAML ➜ permet aux stakeholders non-techniques de configurer des pipelines en toute sécurité, évitant erreurs de syntaxe et réduisant le temps de support",
+        "Concepteur et développeur d'un éditeur de configuration YAML ➜ fabrication & test des pipelines réduit de ~50%, investigation d'incidents de 30–60 min à moins de 2 min",
         "Développement de fonctionnalités sur le moteur ETL interne (Python) et des modèles dbt, avec les standards du génie logiciel (tests, documentation, CI/CD)",
         "Mise en place de data contracts et de validation de schéma pour détecter les problèmes de qualité en amont",
         "Implémentation de processus d'alerting pour la surveillance proactive des pipelines",
@@ -151,13 +151,13 @@ export const experiences = [
     icon: "/logos/bouygues-telecom.svg" as string | null,
     highlights: {
       en: [
-        "Developed an internal web app for log data visualization & analysis, full-stack, designed and built independently",
+        "Developed an internal web app for log data visualization & analysis. Machine log investigation time reduced from several minutes to near-instant access.",
         "Improved a SQL streaming module within an internal ETL using Apache Flink",
         "Automated documentation generation from Java code & Markdown with Docusaurus",
         "Developed data governance scripts using BigQuery, Teradata, and Hadoop",
       ],
       fr: [
-        "Développement d'une application web interne de visualisation et d'analyse de logs, full-stack, conçue et construite de façon autonome",
+        "Développement d'une application web interne de visualisation et d'analyse de logs. Temps d'investigation des logs machines réduit de plusieurs minutes à un accès quasi-instantané.",
         "Amélioration d'un module SQL de streaming au sein d'un ETL interne avec Apache Flink",
         "Automatisation de la documentation depuis le code Java & Markdown avec Docusaurus",
         "Développement de scripts pour la gouvernance des données avec BigQuery, Teradata et Hadoop",
@@ -429,8 +429,8 @@ export const projects = [
     slug: "yaml-configuration-editor",
     title: { en: "YAML Configuration Editor", fr: "Éditeur de Configuration YAML" } as Bil,
     description: {
-      en: "Custom internal web app that allows non-technical stakeholders at papernest to safely configure data pipelines. Prevents syntax errors, reduces support time, and empowers business teams to work autonomously.",
-      fr: "Application web interne permettant aux stakeholders non-techniques de papernest de configurer des pipelines data en toute sécurité. Évite les erreurs de syntaxe, réduit le temps de support et donne aux équipes métier une autonomie plus importante.",
+      en: "Custom internal web app that allows non-technical stakeholders at papernest to safely configure data pipelines. Cut pipeline build & test time by ~50% and incident investigation from 30–60 min to under 2 min.",
+      fr: "Application web interne permettant aux stakeholders non-techniques de papernest de configurer des pipelines data en toute sécurité. Réduit le temps de fabrication & test de ~50% et l'investigation d'incidents de 30–60 min à moins de 2 min.",
     } as Bil,
     type: { en: "Internal Web Tool", fr: "Outil Interne Web" } as Bil,
     date: "Oct 2025",
@@ -466,8 +466,8 @@ export const projects = [
         fr: "L'éditeur donne aux stakeholders non-techniques un contrôle total sur la configuration des pipelines via une interface guidée et sécurisée. Toutes les modifications sont validées en temps réel, prévisualisées avant application, et testés via un flux contrôlé, sans risque d'introduire des erreurs de syntaxe dans les pipelines de production.",
       } as Bil,
       keyOutcome: {
-        en: "Support tickets related to pipeline configuration dropped significantly. Sales Ops teams across FR, ES, and IT markets now autonomously manage configurations without engineering intervention, freeing Data Engineer time for higher-value tasks.",
-        fr: "Les tickets de support liés à la configuration des pipelines ont significativement diminué. Les équipes Sales Ops des marchés FR, ES et IT gèrent désormais de manière bien plus autonome les configurations sans intervention de l'ingénieur Data.",
+        en: "Pipeline build & test time cut by ~50%. Incident investigation went from 30–60 min to under 2 min. Sales Ops teams across FR, ES & IT now manage configurations autonomously, freeing engineering time for higher-value work.",
+        fr: "Fabrication & test des pipelines réduit de ~50%. Investigation d'incidents : de 30–60 min à moins de 2 min. Les équipes Sales Ops FR, ES & IT configurent désormais les pipelines en autonomie, libérant du temps ingénierie pour des tâches à plus forte valeur.",
       } as Bil,
       applications: {
         en: ["Multi-market data pipeline self-service", "Non-technical stakeholder autonomy", "Reducing engineering bottlenecks in data operations", "Safe configuration management"],
@@ -479,8 +479,8 @@ export const projects = [
     slug: "log-data-visualization-platform",
     title: { en: "Log Data Visualization Platform", fr: "Plateforme de Visualisation de Logs" } as Bil,
     description: {
-      en: "Full-stack internal web application for log data visualization and analysis at Bouygues Telecom. Designed and developed independently from scratch with continuous evolution based on user feedback.",
-      fr: "Application web interne full-stack pour la visualisation et l'analyse de logs chez Bouygues Telecom. Conçue et développée de façon indépendante, avec une évolution continue basée sur les retours utilisateurs.",
+      en: "Full-stack internal web application for log data visualization and analysis at Bouygues Telecom. Machine log investigation time reduced from several minutes to near-instant access. Designed and built independently from scratch.",
+      fr: "Application web interne full-stack pour la visualisation et l'analyse de logs chez Bouygues Telecom. Temps d'investigation des logs machines réduit de plusieurs minutes à un accès quasi-instantané. Conçue et développée de façon autonome.",
     } as Bil,
     type: { en: "Internal Web Platform", fr: "Plateforme Interne Web" } as Bil,
     date: "Sept 2022",
@@ -516,8 +516,8 @@ export const projects = [
         fr: "Une plateforme web interne unifiée qui agrège, visualise et permet l'analyse des données de log issues de pipelines distribués. Les ingénieurs peuvent surveiller l'état des pipelines, investiguer les anomalies et analyser les patterns de logs historiques via une seule interface dédiée.",
       } as Bil,
       keyOutcome: {
-        en: "Pipeline issues that previously required tens of minutes of log digging became visible in seconds. Shared filters let technical teams collaborate and share context instantly during incident investigations.",
-        fr: "Réduction du temps d'agrégation des informations — des problèmes pipeline visibles en quelques secondes là où il fallait plusieurs dizaines de minutes. Les filtres permettent de partager l'information facilement entre les équipes techniques.",
+        en: "Machine log investigation time reduced from several minutes to near-instant access via the platform. Shared filters let teams share context immediately during incidents.",
+        fr: "Temps d'investigation des logs machines réduit de plusieurs minutes à un accès quasi-instantané via la plateforme. Les filtres partagés permettent aux équipes de partager le contexte immédiatement lors d'incidents.",
       } as Bil,
       applications: {
         en: ["Streaming pipeline monitoring", "Log analysis & anomaly investigation", "Real-time data quality visibility", "Internal data observability"],

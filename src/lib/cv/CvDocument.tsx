@@ -20,17 +20,29 @@ const labels = {
   website: { en: "Website", fr: "Site web" },
 } as const;
 
-function initials(name: string): string {
-  return name
-    .split(" ")
-    .map((w) => w[0])
-    .join("")
-    .toUpperCase();
-}
 
 /** Replace glyphs absent from the embedded latin fonts (e.g. the ➜ arrow). */
 function clean(t: string): string {
   return t.replace(/[➜→]/g, "—");
+}
+
+/** Translate English month abbreviations and "Present" for the FR locale. */
+function localizePeriod(period: string, lang: Lang): string {
+  if (lang !== "fr") return period;
+  return period
+    .replace(/\bPresent\b/g, "Aujourd'hui")
+    .replace(/\bJan\b/g, "Jan")
+    .replace(/\bFeb\b/g, "Fév")
+    .replace(/\bMar\b/g, "Mar")
+    .replace(/\bApr\b/g, "Avr")
+    .replace(/\bMay\b/g, "Mai")
+    .replace(/\bJun\b/g, "Juin")
+    .replace(/\bJul\b/g, "Juil")
+    .replace(/\bAug\b/g, "Août")
+    .replace(/\bSept?\b/g, "Sept")
+    .replace(/\bOct\b/g, "Oct")
+    .replace(/\bNov\b/g, "Nov")
+    .replace(/\bDec\b/g, "Déc");
 }
 
 function Section({ title, children }: { title: string; children: ReactNode }) {
@@ -123,16 +135,8 @@ export default function CvDocument({ lang }: { lang: Lang }) {
   return (
     <Document title={`CV ${personal.name}`} author={personal.name}>
       <Page size="A4" style={s.page}>
-        {/* Header — outlined monogram (top-right corner broken) + name centred on the box */}
+        {/* Header */}
         <View style={s.header}>
-          <View style={s.monogram}>
-            {/* 4 border lines: left + bottom = full; top + right have a 10pt gap at top-right */}
-            <View style={[s.monoLineV, { top: 0, left: 0, height: 52 }]} />
-            <View style={[s.monoLineH, { bottom: 0, left: 0, width: 52 }]} />
-            <View style={[s.monoLineH, { top: 0, left: 0, width: 42 }]} />
-            <View style={[s.monoLineV, { top: 10, right: 0, height: 42 }]} />
-            <Text style={s.monogramText}>{initials(personal.name)}</Text>
-          </View>
           <View style={s.nameWrapper}>
             <Text style={s.name}>{personal.name}</Text>
             <Text style={[s.subtitle, s.subtitleAbsolute]}>{personal.title[lang]}</Text>
@@ -186,7 +190,7 @@ export default function CvDocument({ lang }: { lang: Lang }) {
               <TimelineEntry
                 key={e.company + e.period}
                 title={e.role[lang]}
-                date={e.period}
+                date={localizePeriod(e.period, lang)}
                 sub={`${e.company} · ${e.location}`}
                 intro={groups ? undefined : ex.summary?.[lang]}
                 points={groups ? undefined : e.highlights[lang]}
@@ -204,7 +208,7 @@ export default function CvDocument({ lang }: { lang: Lang }) {
             <TimelineEntry
               key={ed.school[lang] + ed.period}
               title={ed.degree[lang]}
-              date={ed.period}
+              date={localizePeriod(ed.period, lang)}
               sub={
                 "location" in ed && ed.location
                   ? `${ed.school[lang]}, ${ed.location}`

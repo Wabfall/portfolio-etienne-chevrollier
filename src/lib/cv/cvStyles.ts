@@ -24,27 +24,6 @@ export const cvStyles = StyleSheet.create({
   // "EC" in OpenSans-SemiBold Tf 40 → ≈25pt navy. The box's left edge sits
   // 1.9pt left of the content margin so it aligns vertically with the
   // timeline markers further down the page (same overhang).
-  // ─── Monogram: outlined square with the top-right corner "broken" ──────
-  // 4 absolute line views = full control over each edge (gap on top-right).
-  monogram: {
-    width: 52,
-    height: 52,
-    position: "relative",
-    alignItems: "center",
-    justifyContent: "center",
-    paddingTop: 6, // optical: shift EC down to box visual centre
-    marginLeft: -2.1,
-    marginRight: 16,
-  },
-  monoLineV: { position: "absolute", backgroundColor: NAVY, width: 1.6 },
-  monoLineH: { position: "absolute", backgroundColor: NAVY, height: 1.6 },
-  monogramText: {
-    fontFamily: "Open Sans",
-    fontWeight: "semibold",
-    fontSize: 26,
-    color: NAVY,
-    lineHeight: 1,
-  },
   // Name lives in a wrapper sized to the monogram so its vertical centre
   // lands exactly on the box's vertical centre. Subtitle is absolutely
   // positioned just below the name and never affects the centring.
@@ -58,7 +37,7 @@ export const cvStyles = StyleSheet.create({
     position: "absolute",
     left: 0,
     right: 0,
-    top: 34,
+    top: 38, // slightly more breathing room between name and subtitle
   },
   name: {
     fontFamily: "Quicksand",
@@ -119,19 +98,20 @@ export const cvStyles = StyleSheet.create({
     backgroundColor: NAVY,
   },
   railFull: { top: 0, bottom: 0 }, // middle entry: full row height
-  railFromMarker: { top: 3, bottom: 0 }, // first entry: starts at marker
-  railToMarker: { top: 0, height: 8 }, // last entry: stops at marker bottom
-  railOnlyMarker: { top: 3, height: 5 }, // single-entry section
+  railFromMarker: { top: 5, bottom: 0 }, // first entry: starts at marker
+  railToMarker: { top: 0, height: 10 }, // last entry: stops at marker bottom
+  railOnlyMarker: { top: 5, height: 5 }, // single-entry section
   marker: {
     // 5pt square centred on the 1.25pt rail line → left = -(5-1.25)/2 = -1.875
+    // top:5 centres the square on the title's x-height (cap area)
     position: "absolute",
     left: -1.9,
-    top: 3,
+    top: 5,
     width: 5,
     height: 5,
     backgroundColor: NAVY,
   },
-  entryBody: { flex: 1, paddingBottom: 14 },
+  entryBody: { flex: 1, paddingBottom: 10 },
   entryBodyLast: { flex: 1, paddingBottom: 0 },
   entryHeader: {
     flexDirection: "row",
@@ -147,15 +127,15 @@ export const cvStyles = StyleSheet.create({
     paddingRight: 8,
   },
   entryDate: { fontSize: 8, color: INK },
-  entryCompany: { fontSize: 8, color: INK, marginTop: 2 },
-  entryIntro: { fontSize: 8.5, color: INK, marginTop: 5, marginBottom: 4, lineHeight: 1.5 },
+  entryCompany: { fontSize: 8, color: INK, marginTop: 5, marginBottom: 5 },
+  entryIntro: { fontSize: 8.5, color: INK, marginTop: 0, marginBottom: 4, lineHeight: 1.5 },
   // Sub-project intro line (paragraph header before its bullet list)
   groupIntro: {
     fontFamily: "Poppins",
     fontWeight: "normal",
     fontSize: 9,
     color: INK,
-    marginTop: 8,
+    marginTop: 3,
     marginBottom: 3,
   },
 
@@ -163,11 +143,13 @@ export const cvStyles = StyleSheet.create({
   bullet: {
     flexDirection: "row",
     alignItems: "baseline",
-    marginTop: 0.5,
+    marginTop: 0,
     paddingRight: 6,
   },
-  bulletDot: { width: 11, fontSize: 12, color: NAVY, lineHeight: 1.45 },
-  bulletText: { flex: 1, fontSize: 8.5, color: INK, lineHeight: 1.45 },
+  // 11 pt dot: visibly bigger than text, but close enough that baseline
+  // alignment still lands it on the first line of multi-line bullets.
+  bulletDot: { width: 11, fontSize: 11, color: NAVY, lineHeight: 1.35 },
+  bulletText: { flex: 1, fontSize: 8.5, color: INK, lineHeight: 1.35 },
 
   // ── Simple marked list (skills / languages / interests) ─────────────────
   listItem: { flexDirection: "row", alignItems: "flex-start", marginBottom: 4 },
