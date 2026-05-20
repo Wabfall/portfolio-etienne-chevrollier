@@ -47,11 +47,6 @@ export default function Navbar() {
                 </a>
               </li>
             ))}
-            <li>
-              <a href="/cv" className="text-sm text-blue-600 hover:text-blue-700 transition-colors font-semibold">
-                {ui.nav.cv[lang]}
-              </a>
-            </li>
           </ul>
 
           <div className="flex items-center gap-1 bg-slate-100 border border-slate-200 rounded-lg p-1">
@@ -117,13 +112,6 @@ export default function Navbar() {
               {l.label}
             </a>
           ))}
-          <a
-            href="/cv"
-            onClick={() => setMenuOpen(false)}
-            className="block py-2 text-blue-600 hover:text-blue-700 transition-colors font-semibold"
-          >
-            {ui.nav.cv[lang]}
-          </a>
         </div>
       )}
     </header>

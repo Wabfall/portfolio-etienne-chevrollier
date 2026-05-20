@@ -17,7 +17,7 @@ const labels = {
   email: { en: "Email", fr: "E-mail" },
   phone: { en: "Phone", fr: "Téléphone" },
   location: { en: "Location", fr: "Localisation" },
-  certification: { en: "Certification", fr: "Certification" },
+  website: { en: "Website", fr: "Site web" },
 } as const;
 
 function initials(name: string): string {
@@ -159,8 +159,10 @@ export default function CvDocument({ lang }: { lang: Lang }) {
                 {personal.github.replace(/^https?:\/\//, "")}
               </Link>
             </InfoCol>
-            <InfoCol label={labels.certification[lang]}>
-              <Text style={s.infoValue}>{personal.badge[lang]}</Text>
+            <InfoCol label={labels.website[lang]}>
+              <Link src={personal.website} style={s.infoLink}>
+                {personal.website.replace(/^https?:\/\//, "")}
+              </Link>
             </InfoCol>
           </View>
         </Section>

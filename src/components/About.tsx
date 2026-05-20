@@ -1,7 +1,12 @@
+import { Suspense, lazy } from "react";
 import { about, personal } from "../data/portfolio";
 import { useLang } from "../lib/lang";
 import { ui } from "../data/ui";
 import { ArrowRight, Download } from "lucide-react";
+
+const CvDownloadLink = lazy(() => import("../lib/cv/CvDownloadLink"));
+const aboutBtnClass =
+  "inline-flex items-center gap-2 text-sm font-semibold text-slate-800 hover:text-indigo-600 transition-colors group";
 
 export default function About() {
   const { lang } = useLang();
@@ -24,14 +29,28 @@ export default function About() {
             </h2>
 
             <div className="mt-10 space-y-3">
-              <a href={personal.cv} download
-                className="inline-flex items-center gap-2 text-sm font-semibold text-slate-800 hover:text-indigo-600 transition-colors group">
-                <div className="w-7 h-7 rounded-lg bg-indigo-50 border border-indigo-200 flex items-center justify-center group-hover:bg-indigo-100 transition-colors">
-                  <Download size={13} className="text-indigo-500" />
-                </div>
-                {ui.about.downloadCV[lang]}
-                <ArrowRight size={13} className="opacity-0 -ml-1 group-hover:opacity-100 group-hover:ml-0 transition-all text-indigo-500" />
-              </a>
+              <Suspense
+                fallback={
+                  <span className={aboutBtnClass}>
+                    <div className="w-7 h-7 rounded-lg bg-indigo-50 border border-indigo-200 flex items-center justify-center">
+                      <Download size={13} className="text-indigo-500" />
+                    </div>
+                    {ui.about.downloadCV[lang]}
+                  </span>
+                }
+              >
+                <CvDownloadLink lang={lang} className={aboutBtnClass}>
+                  {(loading) => (
+                    <>
+                      <div className="w-7 h-7 rounded-lg bg-indigo-50 border border-indigo-200 flex items-center justify-center group-hover:bg-indigo-100 transition-colors">
+                        <Download size={13} className="text-indigo-500" />
+                      </div>
+                      {loading ? ui.cv.generating[lang] : ui.about.downloadCV[lang]}
+                      <ArrowRight size={13} className="opacity-0 -ml-1 group-hover:opacity-100 group-hover:ml-0 transition-all text-indigo-500" />
+                    </>
+                  )}
+                </CvDownloadLink>
+              </Suspense>
               <a href={`mailto:${personal.email}`}
                 className="flex items-center gap-2 text-sm text-slate-400 hover:text-indigo-600 transition-colors font-mono">
                 {personal.email}

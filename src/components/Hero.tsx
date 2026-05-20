@@ -1,8 +1,13 @@
+import { Suspense, lazy } from "react";
 import { personal, stats } from "../data/portfolio";
 import { useLang } from "../lib/lang";
 import { ui } from "../data/ui";
 import { MapPin, Download, Mail } from "lucide-react";
 import { GithubIcon, LinkedinIcon } from "./Icons";
+
+const CvDownloadLink = lazy(() => import("../lib/cv/CvDownloadLink"));
+const cvBtnClass =
+  "inline-flex items-center gap-2 px-6 py-2.5 rounded-lg border border-slate-300 hover:border-slate-400 bg-white text-slate-700 font-semibold text-sm transition-colors";
 
 function Sparkline() {
   const points = [40, 55, 45, 60, 52, 68, 62, 75, 70, 82, 78, 90];
@@ -135,10 +140,22 @@ export default function Hero() {
                 className="inline-flex items-center gap-2 px-6 py-2.5 rounded-lg bg-indigo-600 hover:bg-indigo-700 text-white font-semibold text-sm transition-colors shadow-sm shadow-indigo-200">
                 <LinkedinIcon size={16} /> LinkedIn
               </a>
-              <a href={personal.cv} download
-                className="inline-flex items-center gap-2 px-6 py-2.5 rounded-lg border border-slate-300 hover:border-slate-400 bg-white text-slate-700 font-semibold text-sm transition-colors">
-                <Download size={15} /> {ui.hero.downloadCV[lang]}
-              </a>
+              <Suspense
+                fallback={
+                  <span className={cvBtnClass}>
+                    <Download size={15} /> {ui.hero.downloadCV[lang]}
+                  </span>
+                }
+              >
+                <CvDownloadLink lang={lang} className={cvBtnClass}>
+                  {(loading) => (
+                    <>
+                      <Download size={15} />
+                      {loading ? ui.cv.generating[lang] : ui.hero.downloadCV[lang]}
+                    </>
+                  )}
+                </CvDownloadLink>
+              </Suspense>
               <a href={personal.github} target="_blank" rel="noopener noreferrer"
                 className="inline-flex items-center gap-2 px-6 py-2.5 rounded-lg border border-slate-200 hover:border-slate-300 text-slate-500 hover:text-slate-700 font-semibold text-sm transition-colors">
                 <GithubIcon size={16} /> GitHub

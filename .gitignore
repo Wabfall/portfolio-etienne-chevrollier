@@ -22,3 +22,10 @@ dist-ssr
 *.njsproj
 *.sln
 *.sw?
+
+# Generated/downloaded CV PDFs kept locally for visual diffing
+CV*.pdf
+"CV - "*.pdf
+
+# Per-project local Claude Code settings
+.claude/settings.local.json

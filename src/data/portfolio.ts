@@ -16,9 +16,10 @@ export const personal = {
   } as Bil,
   badge: { en: "Google Cloud Certified", fr: "Certifié Google Cloud" } as Bil,
   email: "etiennechevrollier@gmail.com",
-  cv: "/cv-etienne-chevrollier.pdf", // place your CV at public/cv-etienne-chevrollier.pdf
+  cv: "/cv-etienne-chevrollier.pdf", // legacy static file path, unused since the CV is now generated on the fly
   github: "https://github.com/Wabfall/",
   linkedin: "https://linkedin.com/in/etienne-chevrollier",
+  website: "https://wabfall.github.io",
 };
 
 // ─── About ───────────────────────────────────────────────────────────────────
@@ -326,7 +327,7 @@ export const skills: SkillCategory[] = [
       en: ["Cloud data infrastructure (GCP certified)", "Data warehouse design & optimization", "Streaming & batch processing", "Data governance & observability"],
       fr: ["Infrastructure data cloud (certifié GCP)", "Conception & optimisation de data warehouses", "Traitement en streaming & batch", "Gouvernance des données & observabilité"],
     },
-    tools: ["BigQuery", "Google Cloud Platform", "ElasticSearch", "Docker"],
+    tools: ["BigQuery", "Google Cloud Platform", "GCP Cloud Digital Leader (certified)", "ElasticSearch", "Docker"],
   },
   {
     name: { en: "AI & Internal Tooling", fr: "IA & Outils Internes" },
