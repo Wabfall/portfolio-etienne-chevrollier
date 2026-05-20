@@ -123,14 +123,19 @@ export default function CvDocument({ lang }: { lang: Lang }) {
   return (
     <Document title={`CV ${personal.name}`} author={personal.name}>
       <Page size="A4" style={s.page}>
-        {/* Header */}
+        {/* Header — outlined monogram (top-right corner broken) + name centred on the box */}
         <View style={s.header}>
           <View style={s.monogram}>
+            {/* 4 border lines: left + bottom = full; top + right have a 10pt gap at top-right */}
+            <View style={[s.monoLineV, { top: 0, left: 0, height: 52 }]} />
+            <View style={[s.monoLineH, { bottom: 0, left: 0, width: 52 }]} />
+            <View style={[s.monoLineH, { top: 0, left: 0, width: 42 }]} />
+            <View style={[s.monoLineV, { top: 10, right: 0, height: 42 }]} />
             <Text style={s.monogramText}>{initials(personal.name)}</Text>
           </View>
-          <View style={s.headerText}>
+          <View style={s.nameWrapper}>
             <Text style={s.name}>{personal.name}</Text>
-            <Text style={s.subtitle}>{personal.title[lang]}</Text>
+            <Text style={[s.subtitle, s.subtitleAbsolute]}>{personal.title[lang]}</Text>
           </View>
         </View>
         <Text style={s.summary}>{clean(personal.tagline[lang])}</Text>

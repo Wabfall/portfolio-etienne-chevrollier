@@ -24,29 +24,42 @@ export const cvStyles = StyleSheet.create({
   // "EC" in OpenSans-SemiBold Tf 40 → ≈25pt navy. The box's left edge sits
   // 1.9pt left of the content margin so it aligns vertically with the
   // timeline markers further down the page (same overhang).
+  // ─── Monogram: outlined square with the top-right corner "broken" ──────
+  // 4 absolute line views = full control over each edge (gap on top-right).
   monogram: {
-    width: 49,
-    height: 49,
-    borderWidth: 0.7,
-    borderColor: NAVY,
+    width: 52,
+    height: 52,
+    position: "relative",
     alignItems: "center",
     justifyContent: "center",
-    // optical: shift contents down a hair so EC sits on the box visual centre
-    paddingTop: 7,
-    marginLeft: -1.9,
+    paddingTop: 6, // optical: shift EC down to box visual centre
+    marginLeft: -2.1,
     marginRight: 16,
   },
+  monoLineV: { position: "absolute", backgroundColor: NAVY, width: 1.6 },
+  monoLineH: { position: "absolute", backgroundColor: NAVY, height: 1.6 },
   monogramText: {
     fontFamily: "Open Sans",
     fontWeight: "semibold",
-    fontSize: 25,
+    fontSize: 26,
     color: NAVY,
     lineHeight: 1,
   },
-  // header uses alignItems flex-start; paddingTop pulls the name down so the
-  // name's vertical centre lands on the box's vertical centre (subtitle hangs
-  // freely below — reference behaviour, never weighs into the centring)
-  headerText: { flex: 1, paddingTop: 10 },
+  // Name lives in a wrapper sized to the monogram so its vertical centre
+  // lands exactly on the box's vertical centre. Subtitle is absolutely
+  // positioned just below the name and never affects the centring.
+  nameWrapper: {
+    flex: 1,
+    height: 52,
+    justifyContent: "center",
+    position: "relative",
+  },
+  subtitleAbsolute: {
+    position: "absolute",
+    left: 0,
+    right: 0,
+    top: 34,
+  },
   name: {
     fontFamily: "Quicksand",
     fontWeight: "bold",
@@ -150,7 +163,7 @@ export const cvStyles = StyleSheet.create({
   bullet: {
     flexDirection: "row",
     alignItems: "baseline",
-    marginTop: 2,
+    marginTop: 0.5,
     paddingRight: 6,
   },
   bulletDot: { width: 11, fontSize: 12, color: NAVY, lineHeight: 1.45 },
