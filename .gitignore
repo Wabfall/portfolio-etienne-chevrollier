@@ -29,3 +29,6 @@ CV*.pdf
 
 # Per-project local Claude Code settings
 .claude/settings.local.json
+
+# Local docs (specs, plans) — kept local only
+docs/
