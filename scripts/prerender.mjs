@@ -43,10 +43,16 @@ try {
 
   for (const url of routes) {
     const appHtml = render(url);
-    const html = template.replace(
+    let html = template.replace(
       '<div id="root"></div>',
       `<div id="root">${appHtml}</div>`
     );
+    if (url !== "/") {
+      html = html.replace(
+        /href="https:\/\/wabfall\.github\.io\/"/g,
+        `href="https://wabfall.github.io${url}/"`
+      );
+    }
 
     let outPath;
     if (url === "/") {
