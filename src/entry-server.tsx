@@ -1,5 +1,5 @@
 import { renderToString } from "react-dom/server";
-import { StaticRouter } from "react-router-dom/server";
+import { StaticRouter } from "react-router-dom";
 import { Routes, Route } from "react-router-dom";
 import { LangProvider } from "./lib/lang";
 import Navbar from "./components/Navbar";
