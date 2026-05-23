@@ -32,11 +32,10 @@ await build({
   },
 });
 
-// Read the built SSR bundle
-const ssrEntry = path.join(ssrOutDir, "entry-server.js");
-const { render } = await import(pathToFileURL(ssrEntry).href);
-
 try {
+  const ssrEntry = path.join(ssrOutDir, "entry-server.js");
+  const { render } = await import(pathToFileURL(ssrEntry).href);
+
   const template = fs.readFileSync(
     path.join(root, "dist", "index.html"),
     "utf-8"
