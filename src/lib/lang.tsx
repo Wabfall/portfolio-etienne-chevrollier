@@ -11,6 +11,7 @@ const LangContext = createContext<{ lang: Lang; setLang: (l: Lang) => void }>({
 
 export function LangProvider({ children }: { children: React.ReactNode }) {
   const [lang, setLang] = useState<Lang>(() => {
+    if (typeof window === "undefined") return "en";
     const stored = localStorage.getItem("lang");
     if (stored === "fr" || stored === "en") return stored;
     return navigator.language.startsWith("fr") ? "fr" : "en";
