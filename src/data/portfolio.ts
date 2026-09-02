@@ -19,7 +19,7 @@ export const personal = {
   cv: "/cv-etienne-chevrollier.pdf", // legacy static file path, unused since the CV is now generated on the fly
   github: "https://github.com/Wabfall/",
   linkedin: "https://linkedin.com/in/etienne-chevrollier",
-  website: "https://wabfall.github.io",
+  website: "https://chevrollier.dev",
 };
 
 // ─── About ───────────────────────────────────────────────────────────────────

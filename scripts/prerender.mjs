@@ -49,8 +49,8 @@ try {
     );
     if (url !== "/") {
       html = html.replace(
-        /href="https:\/\/wabfall\.github\.io\/"/g,
-        `href="https://wabfall.github.io${url}/"`
+        /href="https:\/\/chevrollier\.dev\/"/g,
+        `href="https://chevrollier.dev${url}/"`
       );
     }
 
