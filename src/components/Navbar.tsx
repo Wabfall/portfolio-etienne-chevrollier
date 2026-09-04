@@ -24,6 +24,7 @@ export default function Navbar() {
     { label: ui.nav.skills[lang],       href: anchorHref("#skills") },
     { label: ui.nav.education[lang],    href: anchorHref("#education") },
     { label: ui.nav.testimonials[lang], href: anchorHref("#testimonials") },
+    { label: ui.nav.tools[lang],        href: "https://tools.chevrollier.dev" },
   ];
 
   return (
