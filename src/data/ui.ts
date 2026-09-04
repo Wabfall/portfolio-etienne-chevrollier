@@ -8,6 +8,7 @@ export const ui = {
     skills:       { en: "Skills",       fr: "Compétences"  } as Bil,
     education:    { en: "Education",    fr: "Formation"    } as Bil,
     testimonials: { en: "Testimonials", fr: "Témoignages"  } as Bil,
+    tools:        { en: "Tools",        fr: "Outils"       } as Bil,
   },
   cv: {
     generating: { en: "Generating PDF…", fr: "Génération du PDF…" } as Bil,
@@ -30,6 +31,10 @@ export const ui = {
     posts:        { en: "LinkedIn Posts", fr: "Posts LinkedIn" } as Bil,
   },
   projects: {
+    toolsHubLead:  {
+      en: "Some of these run in production and can be tried at",
+      fr: "Certains tournent en production et s'essaient sur",
+    } as Bil,
     featured:      { en: "Featured",             fr: "En vedette"         } as Bil,
     others:        { en: "Other projects",        fr: "Autres projets"     } as Bil,
     viewGithub:    { en: "View on GitHub",        fr: "Voir sur GitHub"    } as Bil,

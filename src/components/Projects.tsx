@@ -32,6 +32,17 @@ export default function Projects() {
       <div className="max-w-5xl mx-auto">
         <SectionHeader icon={<FolderOpen size={18} />} title={ui.sections.projects[lang]} />
 
+        <p className="-mt-4 mb-8 text-sm text-slate-500">
+          {ui.projects.toolsHubLead[lang]}{" "}
+          <a
+            href="https://tools.chevrollier.dev"
+            className="inline-flex items-center gap-1 font-semibold text-indigo-600 hover:text-indigo-700"
+          >
+            tools.chevrollier.dev
+            <ArrowUpRight size={13} />
+          </a>
+        </p>
+
         {/* Filter bar */}
         <div className="flex flex-wrap gap-2 mb-10">
           {filters.map(({ key, labelKey }) => (
