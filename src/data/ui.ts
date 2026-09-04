@@ -38,6 +38,8 @@ export const ui = {
     featured:      { en: "Featured",             fr: "En vedette"         } as Bil,
     others:        { en: "Other projects",        fr: "Autres projets"     } as Bil,
     viewGithub:    { en: "View on GitHub",        fr: "Voir sur GitHub"    } as Bil,
+    tryLive:       { en: "Try it live",           fr: "Essayer en ligne"   } as Bil,
+    liveBadge:     { en: "live",                  fr: "en ligne"           } as Bil,
     viewProject:   { en: "View project →",        fr: "Voir le projet →"   } as Bil,
     internal:      { en: "Internal – code private", fr: "Interne – code privé" } as Bil,
     moreProjects:  { en: "More projects",         fr: "Autres projets"     } as Bil,

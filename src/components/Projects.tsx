@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { projects, type ProjectCategory } from "../data/portfolio";
+import { projects, liveDemos, type ProjectCategory } from "../data/portfolio";
 import { useLang } from "../lib/lang";
 import { ui } from "../data/ui";
 import { SectionHeader, projectCategoryConfig } from "./Experience";
@@ -139,9 +139,19 @@ function ProjectCard({ project, featured = false }: { project: (typeof projects)
           )}
         </div>
 
-        {project.github && (
-          <div className="flex items-center gap-1.5 text-xs text-slate-400 mt-auto pt-3 border-t border-slate-100">
-            <GithubIcon size={12} /> Code
+        {(project.github || liveDemos[project.slug]) && (
+          <div className="flex items-center gap-3 text-xs text-slate-400 mt-auto pt-3 border-t border-slate-100">
+            {project.github && (
+              <span className="flex items-center gap-1.5">
+                <GithubIcon size={12} /> Code
+              </span>
+            )}
+            {liveDemos[project.slug] && (
+              <span className="flex items-center gap-1.5 font-semibold text-emerald-600">
+                <span className="w-1.5 h-1.5 rounded-full bg-emerald-500" />
+                {ui.projects.liveBadge[lang]}
+              </span>
+            )}
           </div>
         )}
       </div>
