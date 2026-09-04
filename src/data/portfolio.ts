@@ -424,6 +424,16 @@ export type ProjectContent = {
   link?: string;
 };
 
+/**
+ * Les projets reellement essayables en ligne, sur tools.chevrollier.dev.
+ * Indexe par slug plutot qu'ajoute au projet : le tableau `projects` n'a pas
+ * de type explicite, et un champ present sur une seule entree y casserait
+ * l'inference. Ajouter un outil = une ligne.
+ */
+export const liveDemos: Record<string, string> = {
+  "linkedin-image-generator-api": "https://tools.chevrollier.dev/linkedin-post-generator",
+};
+
 export const projects = [
   {
     slug: "yaml-configuration-editor",

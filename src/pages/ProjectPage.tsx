@@ -1,5 +1,5 @@
 import { useParams, Link } from "react-router-dom";
-import { projects } from "../data/portfolio";
+import { projects, liveDemos } from "../data/portfolio";
 import { useLang } from "../lib/lang";
 import { ui } from "../data/ui";
 import { projectCategoryConfig } from "../components/Experience";
@@ -146,12 +146,21 @@ export default function ProjectPage() {
               </div>
             </div>
 
-            {project.github && (
-              <a href={project.github} target="_blank" rel="noopener noreferrer"
-                className="flex items-center gap-2 text-xs text-slate-400 hover:text-indigo-600 transition-colors font-medium">
-                <ExternalLink size={12} /> GitHub
-              </a>
-            )}
+            <div className="flex flex-wrap items-center gap-4">
+              {liveDemos[project.slug] && (
+                <a href={liveDemos[project.slug]} target="_blank" rel="noopener noreferrer"
+                  className="inline-flex items-center gap-2 rounded-lg bg-indigo-600 px-4 py-2 text-xs font-bold text-white hover:bg-indigo-700 transition-colors">
+                  {ui.projects.tryLive[lang]}
+                  <ExternalLink size={12} />
+                </a>
+              )}
+              {project.github && (
+                <a href={project.github} target="_blank" rel="noopener noreferrer"
+                  className="flex items-center gap-2 text-xs text-slate-400 hover:text-indigo-600 transition-colors font-medium">
+                  <ExternalLink size={12} /> GitHub
+                </a>
+              )}
+            </div>
           </div>
         </div>
 
