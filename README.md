@@ -1,73 +1,43 @@
-# React + TypeScript + Vite
+# chevrollier.dev
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+My portfolio and CV, live at **[chevrollier.dev](https://chevrollier.dev)**.
 
-Currently, two official plugins are available:
+I am Etienne Chevrollier, a Data Engineer in Barcelona. This repository is the source of the site: the experience, the projects, and a CV you can download as a PDF generated in the browser.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+The repository is still named `WabFall.github.io` because that is what GitHub Pages required before the custom domain. `wabfall.github.io` now redirects here.
 
-## React Compiler
+## How it works
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+- **Vite + React + Tailwind**, in TypeScript.
+- **Bilingual (EN/FR)** throughout. Every user-facing string is a `{ en, fr }` pair in [`src/data/`](src/data/), so the content lives apart from the components that render it. The chosen language is remembered in `localStorage` where the browser allows it.
+- **Pre-rendered to static HTML.** `scripts/prerender.mjs` renders all eight routes through `react-dom/server` and writes real markup into each `index.html`. This is what lets search engines and AI crawlers read the site without executing JavaScript — the same reason there is structured JSON-LD and a `<noscript>` summary in `index.html`.
+- **The PDF CV is generated on the fly** with `@react-pdf/renderer` ([`src/lib/cv/`](src/lib/cv/)), in whichever language is selected. There is no PDF checked into the repository to fall out of date.
+- **Deployed to GitHub Pages** by [`.github/workflows/deploy.yml`](.github/workflows/deploy.yml) on every push to `main`.
 
-## Expanding the ESLint configuration
+## Content lives in data, not in components
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+Editing the site rarely means touching JSX:
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+| File | Holds |
+|---|---|
+| [`src/data/portfolio.ts`](src/data/portfolio.ts) | Identity, experience, education, skills, projects, testimonials |
+| [`src/data/ui.ts`](src/data/ui.ts) | Every label and heading, in both languages |
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+`portfolio.ts` also carries `liveDemos`, mapping a project slug to a URL when that project is actually running somewhere — which is what puts the "Try it live" button on a project page. The tools it points to are indexed at [tools.chevrollier.dev](https://tools.chevrollier.dev).
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+Adding a project means adding an entry and, if it deserves its own page, a `slug` plus a line in the `routes` array of `scripts/prerender.mjs` so the page is pre-rendered too.
+
+## Running it locally
+
+```bash
+npm install
+npm run dev      # http://localhost:5173
+npm run build    # type-check, bundle, then pre-render all routes
+npm run lint
 ```
 
-You can also install [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) for React-specific lint rules:
+After `npm run build`, check that the output is genuinely pre-rendered rather than an empty shell:
 
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+```bash
+grep -c "Etienne Chevrollier" dist/index.html   # should be well above zero
 ```
